@@ -13,7 +13,8 @@ void setup(){
   p = new Player();
   s = new Stun();
   t = new Traps();
-  
+  fullScreen();
+ 
   
   
   
