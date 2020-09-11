@@ -1,21 +1,16 @@
-Collectables c;
-Hunter h;
-Map m;
-Player p;
-Stun s;
-Traps t;
+Collectables c = new Collectables();
+Hunter h = new Hunter();
+Map m = new Map();
+Player p = new Player();
+Stun s = new Stun();
+Traps t = new Traps();
 
 boolean gamePaused = false;
 
 
 void setup() {
-  c = new Collectables();
-  h = new Hunter();
-  m = new Map();
-  p = new Player();
-  s = new Stun();
-  t = new Traps();
   fullScreen();
+  
 }
 
 
