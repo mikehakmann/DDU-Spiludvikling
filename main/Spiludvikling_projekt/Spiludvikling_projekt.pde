@@ -4,8 +4,9 @@ Player p;
 Stun s;
 Traps t;
 
+boolean gamePaused = false;
 
-void setup(){
+void setup() {
   h = new Hunter();
   m = new Map();
   p = new Player();
@@ -16,14 +17,30 @@ void setup(){
   
   
   
-  
 }
 
 
 void draw() {
-  
-  
-  
-  
-  
+  pauseGame();
+  if (gamePaused == false) {
+    
+    
+    
+    
+    
+    
+    
+  }
+}
+
+
+void pauseGame() {
+  if (keyPressed) {
+    if (key == 'p' || key == 'P') {
+      gamePaused = true;
+    }
+    if (key == 'o' || key == 'O') {
+      gamePaused = false;
+    }
+  }
 }
