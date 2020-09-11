@@ -15,7 +15,8 @@ void setup(){
   t = new Traps();
   fullScreen();
  
-  
+  //peepeepoopoo
+  ellipse(29,29,29,29);
   
   
   
