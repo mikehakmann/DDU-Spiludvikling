@@ -20,6 +20,7 @@ void setup() {
 
 
 void draw() {
+  t.shelf(100,100);
   pauseGame();
   if (gamePaused == false) {
     
