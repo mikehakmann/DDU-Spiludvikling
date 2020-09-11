@@ -5,8 +5,10 @@ Player p;
 Stun s;
 Traps t;
 
+boolean gamePaused = false;
 
-void setup(){
+
+void setup() {
   c = new Collectables();
   h = new Hunter();
   m = new Map();
@@ -14,20 +16,27 @@ void setup(){
   s = new Stun();
   t = new Traps();
   fullScreen();
- 
-  //peepeepoopoo
-  ellipse(29,29,29,29);
-  
-  
-  
-  
 }
 
 
 void draw() {
-  
-  
-  
-  
-  
+  pauseGame();
+  if (gamePaused == false) {
+    
+    
+    
+    
+  }
+}
+
+
+void pauseGame() {
+  if (keyPressed) {
+    if (key == 'p' || key == 'P') {
+      gamePaused = true;
+    }
+    if (key == 'o' || key == 'O') {
+      gamePaused = false;
+    }
+  }
 }
