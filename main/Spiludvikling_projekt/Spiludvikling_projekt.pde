@@ -7,18 +7,18 @@ Traps t = new Traps();
 
 boolean gamePaused = false;
 PImage player;
+PImage hunter;
 PVector vertical = new PVector(0, 100);
-int wid = width;
-int hei = height;
 
 
 void setup() {
   fullScreen();
-  imageMode(CENTER);
+  
   
   player = loadImage("player.png");  //placeholder pic is 128x128 pixels
+  hunter = loadImage("hunter.png");
   
-  
+  imageMode(CENTER);
   
 }
 
@@ -26,7 +26,11 @@ void setup() {
 void draw() {
   pauseGame();
   if (gamePaused == false) {
+    background(0);
+    
     p.playerRotation();
+    h.hunterRotation();
+    
     
     
   }
