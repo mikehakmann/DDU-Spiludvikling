@@ -6,10 +6,19 @@ Stun s = new Stun();
 Traps t = new Traps();
 
 boolean gamePaused = false;
+PImage player;
+PVector vertical = new PVector(0, 100);
+int wid = width;
+int hei = height;
 
 
 void setup() {
   fullScreen();
+  imageMode(CENTER);
+  
+  player = loadImage("player.png");  //placeholder pic is 128x128 pixels
+  
+  
   
 }
 
@@ -17,8 +26,7 @@ void setup() {
 void draw() {
   pauseGame();
   if (gamePaused == false) {
-    
-    
+    p.playerRotation();
     
     
   }
