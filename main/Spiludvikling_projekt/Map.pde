@@ -3,25 +3,46 @@ class Map {
 
   void drawMap() {
     fill(0);
-    rect(0, 0, width, str);
-    rect(0, 0, str, height);
-    rect(0, height-str, width, height);
-    rect(width-str, 0, width, height);
-    rect(width/5-75, 0, 75, 325);
-    rect(0, height/2-37.5, width/5, -100);
-    rect(0, height/2+37.5, width/5, str);
-    rect(0, height/2+37.5, width/5, 250);
-    rect(125, height-125, width/4, -str);
-    rect(width/5+75, 125, 50, height -375);
-    rect(width/5+200, 125, 50, height/2-200);
-    rect(width/5+250, height/2-125, height/2-200, 50);
-    rect(width/5+325, 0, 50, height/2-200);
-    rect(width/5+325, height/2-200, 500, -50);
-    rect(width/5+200, height/2, 200, 35);
-    rect(width/5+500, height/2, 200, 35);
-    rect(width/5+200, height/2, 35, 200);
-    rect(width/5+700, height/2, 35, 200);
-    rect(width/5+200,height/2+200,535,35);  
-      
+
+    rect(0, 0, width, str);              //Border
+    rect(0, 0, str, height);             //Border
+    rect(0, height-str, width, height);  //Border
+    rect(width-str, 0, width, height);   //Border
+scale(1.5);
+
+    fill(50);
+    rect(0, 850, 3000, 50);  //border2X
+    rect(1500, 0, 50, 3000);//border2Y
+    fill(0);
+    rect(400, 50, 50, 200);   //1
+    rect(50, 300, 400, 50);   //2
+    rect(50, 400, 400, 300);  //3
+    rect(100, 750, 450, 50);  //4
+    rect(500, 100, 50, 600);  //5
+    rect(600, 100, 50, 250);  //6
+    rect(600, 300, 200, 50);  //7
+    rect(700, 50, 50, 200);   //8
+    rect(700, 200, 400, 50);  //9
+    rect(1150, 50, 50, 300);  //10
+    rect(850, 50, 300, 50);   //11
+    rect(1150, 300, 150, 50); //12
+    rect(1350, 300, 150, 50); //13
+    rect(850, 300, 250, 50);  //14
+    rect(1050, 300, 50, 300); //15
+    rect(1150, 400, 50, 250); //16
+    rect(1050, 650, 300, 50); //17
+    rect(1400, 650, 100, 50); //18
+    rect(1300, 700, 50, 50);  //19
+    rect(1300, 800, 50, 50);  //20
+    rect(950, 400, 50, 450);  //21
+    rect(600, 400, 100, 50);  //22
+    rect(750, 400, 150, 50);  //23
+    rect(600, 400, 50, 200);  //24
+    rect(600, 550, 300, 50);  //25
+    rect(850, 450, 50, 100);  //26
+    rect(1250, 400, 250, 50); //27
+    rect(1250, 400, 50, 200); //28
+    rect(1250, 550, 100, 50); //29
+    rect(1400, 550, 100, 50); //30
   }
 }
