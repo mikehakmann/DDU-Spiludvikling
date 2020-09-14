@@ -7,6 +7,9 @@ Player p = new Player();
 Stun s = new Stun();
 Traps t = new Traps();
 
+import processing.sound.*;
+SoundFile bgMusic;
+
 boolean gamePaused = false;
 PImage player;
 PImage hunter;
@@ -20,6 +23,8 @@ int dustCount;
 
 void setup() {
   fullScreen(1);
+  //bgMusic = new SoundFile(this, "/*bgMusic i .wav format*/");
+  //bgMusic.loop();
   playerX = width/2;            //placeholder for player's spawn position
   playerY = height/2;
   hunterX = random(200, 2000);  //placeholder for hunter's spawn position
