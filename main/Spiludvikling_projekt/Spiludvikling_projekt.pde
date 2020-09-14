@@ -16,7 +16,7 @@ void setup() {
   
   
   player = loadImage("player.png");  //placeholder pic is 128x128 pixels
-  hunter = loadImage("hunter.png");
+  hunter = loadImage("hunter.png");  //placeholder pic is 250x260 pixels
   
   imageMode(CENTER);
   
