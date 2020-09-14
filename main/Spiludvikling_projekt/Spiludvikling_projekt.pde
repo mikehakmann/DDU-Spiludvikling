@@ -49,7 +49,7 @@ void draw() {
     text("Press 'p' to pause     Press 'o' to unpause", width*0.0117, height*0.0208);
     textSize(12);
     text(frameCount, width*0.005859, height*0.9896);
-    
+
     p.playerRotation();
     h.hunterRotation();
 
