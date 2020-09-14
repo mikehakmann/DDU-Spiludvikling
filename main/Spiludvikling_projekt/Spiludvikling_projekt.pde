@@ -17,7 +17,7 @@ void setup() {
   fullScreen();
   d = new Dust[dustCount];
   for (int i = 0; i<d.length; i++) {
-    d[i] = new Dust(random(5.0, width-5.0), random(5.0, height-5.0), random(0.1, 0.3), floor(random(3, 5)));  //giver alle bolde tilfældige start-positioner og -hastigheder
+    d[i] = new Dust(random(5.0, width-5.0), random(5.0, height-5.0), random(0.1, 0.3), random(70.0, 120.0), floor(random(4, 5)));  //giver alle bolde tilfældige start-positioner og -hastigheder
   }
 
   player = loadImage("player.png");  //placeholder pic is 128x128 pixels
@@ -30,7 +30,7 @@ void setup() {
 void draw() {
   pauseGame();
   if (gamePaused == false) {
-    background(255);
+    background(0);
 
     p.playerRotation();
     h.hunterRotation();
