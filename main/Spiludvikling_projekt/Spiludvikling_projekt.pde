@@ -2,6 +2,7 @@ Collectables c = new Collectables();
 Dust[] d;
 Hunter h = new Hunter();
 Map m = new Map();
+Pause ps = new Pause();
 Player p = new Player();
 Stun s = new Stun();
 Traps t = new Traps();
@@ -28,7 +29,7 @@ void setup() {
 
 
 void draw() {
-  pauseGame();
+  ps.pauseGame();
   if (gamePaused == false) {
     background(0);
 
@@ -44,18 +45,6 @@ void draw() {
       if (d[j].dustPos.y > height + d[j].dustSize) {
         d[j].dustPos.y = 0 - d[j].dustSize;
       }
-    }
-  }
-}
-
-
-void pauseGame() {
-  if (keyPressed) {
-    if (key == 'p' || key == 'P') {
-      gamePaused = true;
-    }
-    if (key == 'o' || key == 'O') {
-      gamePaused = false;
     }
   }
 }
