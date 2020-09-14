@@ -1,14 +1,16 @@
 class Dust {
-  PVector dustPos = new PVector(-10, 10);
-  PVector dustVel = new PVector(0.5, 0.5);
+  PVector dustPos = new PVector(-1, 1);
+  PVector dustVel = new PVector(width*0.0001953, height*0.0003472);
   float alphaValue;
-  float dustSize;
+  float dustSizeX;
+  float dustSizeY;
 
-  Dust(float x, float y, float vel, float alphaValue, int dustSize) {
+  Dust(float x, float y, float Xvel, float Yvel, float alphaValue, int dustSizeX, int dustSizeY) {
     dustPos.set(x, y);
-    dustVel.set(-vel, vel);
+    dustVel.set(-Xvel, Yvel);
     this.alphaValue = alphaValue;
-    this.dustSize = dustSize;
+    this.dustSizeX = dustSizeX;
+    this.dustSizeY = dustSizeY;
   }
 
 
@@ -16,8 +18,6 @@ class Dust {
     dustPos.add(dustVel);
     fill(100, alphaValue);
     noStroke();
-    circle(dustPos.x, dustPos.y, dustSize);
-    
-    
+    ellipse(dustPos.x, dustPos.y, dustSizeX, dustSizeY);
   }
 }

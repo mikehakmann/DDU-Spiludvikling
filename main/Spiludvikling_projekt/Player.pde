@@ -1,6 +1,4 @@
 class Player {
-  float playerX = 1200;
-  float playerY = 1000;
   PVector playerAim = new PVector(mouseX, mouseY);
   PVector playerFaceCursor;
   float playerAngle;
@@ -8,15 +6,15 @@ class Player {
   
   
   void playerRotation() {
-    p.playerFaceCursor = new PVector((p.playerX+64)-mouseX, (p.playerY+64)-mouseY);
-    p.playerAngle = PVector.angleBetween(vertical, p.playerFaceCursor);
-    if (mouseX > p.playerX+64) {
-      p.playerAngle *= -1;
+    p.playerFaceCursor = new PVector((playerX+64)-mouseX, (playerY+64)-mouseY);
+    p.playerAngle = PVector.angleBetween(vertical, playerFaceCursor);
+    if (mouseX > playerX+64) {
+      playerAngle *= -1;
     }
     
     pushMatrix();
-    translate(p.playerX+64, p.playerY+64);
-    rotate(-p.playerAngle);
+    translate(playerX+64, playerY+64);
+    rotate(-playerAngle);
     image(player, 0, 0);
     popMatrix();
   }
