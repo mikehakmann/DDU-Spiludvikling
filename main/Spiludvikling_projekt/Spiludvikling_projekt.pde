@@ -36,17 +36,13 @@ void draw() {
     h.hunterRotation();
 
     for (int j = 0; j < d.length; j++) {
-      //PVector dustResetX = new PVector(width + d[j].dustSize, d[j].dustPos.y);
-      //PVector dustResetY = new PVector(d[j].dustPos.x, 0 - d[j].dustSize);
-      float dustPosX = width + d[j].dustSize;
-      float dustPosY = 0 - d[j].dustSize;
       d[j].updateDust();
-      
+
       if (d[j].dustPos.x < 0 - d[j].dustSize) {
-        d[j].dustPos.x.add(dustPosX);
+        d[j].dustPos.x = width + d[j].dustSize;
       }
       if (d[j].dustPos.y > height + d[j].dustSize) {
-        d[j].dustPos.y.add(dustPosY);
+        d[j].dustPos.y = 0 - d[j].dustSize;
       }
     }
   }
