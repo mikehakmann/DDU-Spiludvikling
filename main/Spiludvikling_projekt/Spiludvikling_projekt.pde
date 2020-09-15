@@ -7,8 +7,8 @@ Player p = new Player();
 Stun s = new Stun();
 Traps t = new Traps();
 
-import processing.sound.*;
-SoundFile bgMusic;
+import processing.sound.*;  //VIGTIGt - Spillet bruger Processings Sound library. Spillet køres ikke, hvis du ikke har installeret det.
+SoundFile bgMusic;          //For at installere: Øverst i Processing, tryk "Sketch" -> "Import Library" -> "Add library" -> søg på "Sound" -> Download "Sound" af The Processing Foundation
 
 boolean isLeft, isRight, isUp, isDown;
 boolean gamePaused = false;
@@ -33,7 +33,7 @@ void setup() {
     d[i] = new Dust(random(width*0.0020, width*0.9980), random(height*0.0035, height*0.9965), random(width*0.00003906, width*0.0001171), random(height*0.00006944, height*0.0002083), random(70.0, 120.0), floor(random(width*0.001563, width*0.001953)), floor(random(height*0.002778, height*0.00347)));
   }
 
-  player = loadImage("player.png");  //placeholder pic is 128x128 pixels
+  player = loadImage("Jerry.png");  //placeholder pic is 128x128 pixels
   hunter = loadImage("hunter.png");  //placeholder pic is 250x260 pixels
 
   imageMode(CENTER);
