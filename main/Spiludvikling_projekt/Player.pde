@@ -47,4 +47,8 @@ class Player {
       return b;
     }
   }
+  
+  void flashlight() {
+    
+  }
 }
