@@ -27,13 +27,13 @@ void setup() {
   pSpeed = 8;
   hunterX = random(200, 2000);  //placeholder for hunter's spawn position
   hunterY = 500;
-  dustCount = floor(height*0.4861);
+  dustCount = floor(height*0.8333);
   d = new Dust[dustCount];
   for (int i = 0; i<d.length; i++) {
     d[i] = new Dust(random(width*0.0020, width*0.9980), random(height*0.0035, height*0.9965), random(width*0.00003906, width*0.0001171), random(height*0.00006944, height*0.0002083), random(70.0, 120.0), floor(random(width*0.001563, width*0.001953)), floor(random(height*0.002778, height*0.00347)));
   }
 
-  player = loadImage("Jerry.png");  //placeholder pic is 128x128 pixels
+  player = loadImage("Jerry.png");  //placeholder pic is 53x31 pixels
   hunter = loadImage("hunter.png");  //placeholder pic is 250x260 pixels
 
   imageMode(CENTER);

@@ -6,9 +6,9 @@ class Hunter {
 
 
   void hunterRotation() {
-    hunterFacePlayer = new PVector((playerX+64)-hunterX, (playerY+64)-hunterY);
+    hunterFacePlayer = new PVector((playerX+27)-hunterX, (playerY+16)-hunterY);
     hunterAngle = PVector.angleBetween(vertical, hunterFacePlayer);
-    if (hunterX > playerX+64) {
+    if (hunterX > playerX+27) {
       hunterAngle *= -1;
     }
 

@@ -5,23 +5,23 @@ class Player {
 
 
   void playerRotation() {
-    p.playerFaceCursor = new PVector((playerX+64)-mouseX, (playerY+64)-mouseY);
+    p.playerFaceCursor = new PVector((playerX+27)-mouseX, (playerY+16)-mouseY);
     p.playerAngle = PVector.angleBetween(vertical, playerFaceCursor);
-    if (mouseX > playerX+64) {
+    if (mouseX > playerX+27) {
       playerAngle *= -1;
     }
 
     pushMatrix();
-    translate(playerX+64, playerY+64);
+    translate(playerX+27, playerY+16);
     rotate(-playerAngle);
     image(player, 0, 0);
     popMatrix();
   }
 
   void movePlayer() {
-    playerX = constrain(playerX + pSpeed*(int(isRight) - int(isLeft)), 15, width  - 128);  //"15" og "128" er bare fordi det passer til placeholder-billedet for player.
-    playerY = constrain(playerY + pSpeed*(int(isDown)  - int(isUp)), 15, height - 128);    //værdierne skal ændres, når vi har en rigtig player-model (derfor ændres de heller ikke til at være width/height-baserede.
-  }                                                                                        //de er essentielt bare collision for siderne af skærmen.
+    playerX = constrain(playerX + pSpeed*(int(isRight) - int(isLeft)), 64, width  - 128);
+    playerY = constrain(playerY + pSpeed*(int(isDown)  - int(isUp)), 75, height - 81);
+  }
 
 
 
