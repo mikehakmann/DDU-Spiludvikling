@@ -15,6 +15,8 @@ class Player {
     translate(playerX+27, playerY+16);
     rotate(-playerAngle);
     image(player, 0, 0);
+    p.flashlight();
+    circle(0, 0, 50);
     popMatrix();
   }
 
@@ -51,30 +53,30 @@ class Player {
   void flashlight() {
     fill(0);
     beginShape();
-    vertex(0, 50);
-    vertex(playerX, playerY-13);
+    vertex(-width/2, -height/2+50);
+    vertex(playerX-27, playerY-13);
     vertex(playerX+53, playerY-13);
     vertex(playerX+450, playerY-250);
-    vertex(width, 50);
+    vertex(width/2, -height/2+50);
     endShape(CLOSE);
     beginShape();
-    vertex(width, 0);
+    vertex(width/2, -height/2);
     vertex(playerX+450, playerY-250);
     vertex(playerX+450, playerY+303);
-    vertex(width, height);
+    vertex(width/2, height/2);
     endShape(CLOSE);
     beginShape();
-    vertex(width, height-50);
+    vertex(width/2, height/2-50);
     vertex(playerX+450, playerY+303);
     vertex(playerX+53, playerY+45);
     vertex(playerX, playerY+45);
-    vertex(0, height-50);
+    vertex(-width/2, height/2-50);
     endShape(CLOSE);
     beginShape();
-    vertex(0, height);
+    vertex(-width/2, height/2);
     vertex(playerX, playerY+45);
     vertex(playerX, playerY-13);
-    vertex(0, 0);
+    vertex(-width/2, -height/2);
     endShape(CLOSE);
   }
 }
