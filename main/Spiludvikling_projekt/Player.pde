@@ -49,6 +49,32 @@ class Player {
   }
   
   void flashlight() {
-    
+    fill(0);
+    beginShape();
+    vertex(0, 50);
+    vertex(playerX, playerY-13);
+    vertex(playerX+53, playerY-13);
+    vertex(playerX+450, playerY-250);
+    vertex(width, 50);
+    endShape(CLOSE);
+    beginShape();
+    vertex(width, 0);
+    vertex(playerX+450, playerY-250);
+    vertex(playerX+450, playerY+303);
+    vertex(width, height);
+    endShape(CLOSE);
+    beginShape();
+    vertex(width, height-50);
+    vertex(playerX+450, playerY+303);
+    vertex(playerX+53, playerY+45);
+    vertex(playerX, playerY+45);
+    vertex(0, height-50);
+    endShape(CLOSE);
+    beginShape();
+    vertex(0, height);
+    vertex(playerX, playerY+45);
+    vertex(playerX, playerY-13);
+    vertex(0, 0);
+    endShape(CLOSE);
   }
 }

@@ -69,6 +69,7 @@ void draw() {
     
   }
   m.drawMap();
+  p.flashlight();
 }
 
 
