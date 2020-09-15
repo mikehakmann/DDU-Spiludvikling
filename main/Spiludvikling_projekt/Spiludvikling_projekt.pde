@@ -10,14 +10,11 @@ Traps t = new Traps();
 import processing.sound.*;
 SoundFile bgMusic;
 
+boolean isLeft, isRight, isUp, isDown;
 boolean gamePaused = false;
-PImage player;
-PImage hunter;
+PImage player, hunter;
 PVector vertical = new PVector(0, 100);
-float playerX;
-float playerY;
-float hunterX;
-float hunterY;
+float playerX, playerY, pSpeed, hunterX, hunterY, hSpeed;
 int dustCount;
 
 
@@ -27,6 +24,7 @@ void setup() {
   //bgMusic.loop();
   playerX = width/2;            //placeholder for player's spawn position
   playerY = height/2;
+  pSpeed = 8;
   hunterX = random(200, 2000);  //placeholder for hunter's spawn position
   hunterY = 500;
   dustCount = floor(height*0.4861);
@@ -46,10 +44,12 @@ void draw() {
   ps.pauseGame();
   if (gamePaused == false) {
     background(0);
+    fill(130);
     text("Press 'p' to pause     Press 'o' to unpause", width*0.0117, height*0.0208);
     textSize(12);
     text(frameCount, width*0.005859, height*0.9896);
-
+    
+    
     p.playerRotation();
     h.hunterRotation();
 
@@ -63,5 +63,17 @@ void draw() {
         d[j].dustPos.y = 0 - d[j].dustSizeY;
       }
     }
+    
+    p.movePlayer();
+    
   }
+}
+
+
+void keyPressed() {
+  p.playerSetMove(keyCode, true);
+}
+
+void keyReleased() {
+  p.playerSetMove(keyCode, false);
 }
