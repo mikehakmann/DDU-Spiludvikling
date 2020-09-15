@@ -43,7 +43,8 @@ void setup() {
 void draw() {
   ps.pauseGame();
   if (gamePaused == false) {
-    background(0);
+    
+    background(255);
     fill(130);
     text("Press 'p' to pause     Press 'o' to unpause", width*0.0117, height*0.0208);
     textSize(12);
@@ -67,6 +68,7 @@ void draw() {
     p.movePlayer();
     
   }
+  m.drawMap();
 }
 
 
