@@ -2,6 +2,8 @@ class Hunter {
   PVector hunterAim = new PVector(mouseX, mouseY);
   PVector hunterFacePlayer;
   float hunterAngle;
+  float deltaX;
+  float deltaY;
 
 
   void hunterRotation() {
@@ -17,5 +19,28 @@ class Hunter {
     rotate(-hunterAngle - PI/1.41);
     image(hunter, 0, 0);
     popMatrix();
+  }
+
+  void moveHunter() {
+    deltaX = abs(playerX+27 - hunterX);
+    deltaY = abs(playerY+16 - hunterY);
+
+    if (frameCount > 200) {
+      if (deltaX > deltaY) {
+        hunterX += hSpeed;
+      }
+      if (deltaY > deltaX) {
+        hunterY += hSpeed;
+      }
+      if (deltaX == deltaY) {
+        int shadowdocs = floor(random(2));  //tilfældigheds-generator kræver naturligvis et tilfædigt navn
+        if (shadowdocs == 1) {
+          hunterX += hSpeed;
+        }
+        if (shadowdocs == 2) {
+          hunterY += hSpeed;
+        }
+      }
+    }
   }
 }

@@ -46,13 +46,8 @@ void setup() {
 void draw() {
   ps.pauseGame();
   if (gamePaused == false) {
-    
     background(255);
-    fill(130);
-    text("Press 'p' to pause     Press 'o' to unpause", width*0.0117, height*0.0208);
-    textSize(12);
-    text(frameCount, width*0.005859, height*0.9896);
-    
+
     for (int j = 0; j < d.length; j++) {
       d[j].updateDust();
 
@@ -63,12 +58,17 @@ void draw() {
         d[j].dustPos.y = 0 - d[j].dustSizeY;
       }
     }
-    b.speedBoost(500,500);
+    b.speedBoost(500, 500);
     h.hunterRotation();  //kaldes før playerRotation(), fordi flashlight() køres derfra. På den måde dækkes Jægeren af lommelygtens mørke
     p.playerRotation();
     p.movePlayer();
+    h.moveHunter();
   }
   m.drawMap();
+  fill(130);
+  text("Press 'p' to pause     Press 'o' to unpause", width*0.0117, height*0.0208);
+  textSize(12);
+  text(frameCount, width*0.005859, height*0.9896);
 }
 
 

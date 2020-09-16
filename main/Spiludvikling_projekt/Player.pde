@@ -16,7 +16,7 @@ class Player {
     rotate(-playerAngle);
     image(player, 0, 0);
     popMatrix();
-    p.flashlight();
+    //p.flashlight();
   }
 
   void movePlayer() {
