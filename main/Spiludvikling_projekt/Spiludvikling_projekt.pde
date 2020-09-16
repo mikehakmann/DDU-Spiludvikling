@@ -34,7 +34,7 @@ void setup() {
   }
 
   player = loadImage("Jerry.png");  //placeholder pic is 53x31 pixels
-  hunter = loadImage("hunter.png");  //placeholder pic is 250x260 pixels
+  hunter = loadImage("Tom.png");  //placeholder pic is 250x260 pixels
 
   imageMode(CENTER);
 }
