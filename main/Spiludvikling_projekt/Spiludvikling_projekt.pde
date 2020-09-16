@@ -15,7 +15,7 @@ boolean isLeft, isRight, isUp, isDown;
 boolean gamePaused = false;
 PImage player, hunter, boost;
 PVector vertical = new PVector(0, 100);
-float playerX, playerY, pSpeed, hunterX, hunterY, hSpeed;
+float playerX, playerY, pSpeed, hunterX, hunterY, hSpeed, deltaX, deltaY;
 int dustCount;
 
 
@@ -29,7 +29,9 @@ void setup() {
   pSpeed = 8;
   hunterX = 200;  //placeholder for hunter's spawn position
   hunterY = 200;
-  hSpeed = 6;
+  hSpeed = 4;
+  deltaX = abs(playerX+27 - hunterX);
+  deltaY = abs(playerY+16 - hunterY);
   dustCount = floor(height*0.8333);
   d = new Dust[dustCount];
   for (int i = 0; i<d.length; i++) {
