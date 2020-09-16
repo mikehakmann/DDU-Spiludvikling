@@ -2,7 +2,6 @@ class Hunter {
   PVector hunterAim = new PVector(mouseX, mouseY);
   PVector hunterFacePlayer;
   float hunterAngle;
-  float hunerSpeed;
 
 
   void hunterRotation() {

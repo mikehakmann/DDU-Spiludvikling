@@ -2,8 +2,6 @@ class Player {
   PVector playerAim = new PVector(mouseX, mouseY);
   PVector playerFaceCursor;
   float playerAngle;
-  int LommelygteBredde = 360;
-  int LommelygteLengde = 135;
 
   void playerRotation() {
     p.playerFaceCursor = new PVector((playerX+27)-mouseX, (playerY+16)-mouseY);
@@ -17,27 +15,7 @@ class Player {
     rotate(-playerAngle);
     image(player, 0, 0);
     popMatrix();
-    //p.flashlight();
-    pushMatrix();    
-    fill(0);
-    translate (playerX+27, playerY+16);
-    rotate(-playerAngle);
-    noStroke();
-    beginShape();
-    vertex(29, 16);
-    vertex(29, -16);
-    vertex(LommelygteLengde, -LommelygteBredde);//Højre lommelygte del bredde og længde
-    vertex(3000, -3000);
-    vertex(3000, 3000);
-    vertex(-3000, 3000);
-    vertex(-3000, 16);
-    vertex(-3000, -3000);
-    vertex(-LommelygteLengde, -LommelygteBredde);//lommelygte bredde og længde
-    vertex(-29, -16);
-    vertex(-29, 16);
-    endShape(CLOSE);
-    quad(-3000,-3000,-LommelygteLengde-1, -LommelygteBredde,LommelygteLengde+1, -LommelygteBredde,3000,-3000);
-    popMatrix();
+    p.flashlight();
   }
 
   void movePlayer() {
@@ -71,34 +49,25 @@ class Player {
   }
 
   void flashlight() {
+    pushMatrix();    
     fill(0);
-    //beginShape();
-    //pushMatrix();
-    //vertex(0, 0);
-    //vertex(playerX-27, playerY-13);
-    //vertex(playerX+53, playerY-13);
-    //vertex(playerX+450, playerY-250);
-    //vertex(width, 50);
-    //popMatrix();
-    //endShape(CLOSE);
-    //beginShape();
-    //vertex(width/2, -height/2);
-    //vertex(playerX+450, playerY-250);
-    //vertex(playerX+450, playerY+303);
-    //vertex(width/2, height/2);
-    //endShape(CLOSE);
-    //beginShape();
-    //vertex(width/2, height/2-50);
-    //vertex(playerX+450, playerY+303);
-    //vertex(playerX+53, playerY+45);
-    //vertex(playerX, playerY+45);
-    //vertex(-width/2, height/2-50);
-    //endShape(CLOSE);
-    //beginShape();
-    //vertex(-width/2, height/2);
-    //vertex(playerX, playerY+45);
-    //vertex(playerX, playerY-13);
-    //vertex(-width/2, -height/2);
-    //endShape(CLOSE);
+    translate (playerX+27, playerY+16);
+    rotate(-playerAngle);
+    noStroke();
+    beginShape();
+    vertex(width*0.01055, height*0.01111);
+    vertex(width*0.01055, -height*0.01111);
+    vertex(width*0.07813, -height*0.3125);//Højre lommelygte del bredde og længde
+    vertex(width*1.2, -height*2);  
+    vertex(width*1.2, height*2);
+    vertex(-width*1.2, height*2);
+    vertex(-width*1.2, height*0.01111);
+    vertex(-width*1.2, -height*2);
+    vertex(-width*0.07813, -height*0.3125);//lommelygte bredde og længde
+    vertex(-width*0.01055, -height*0.01111);
+    vertex(-width*0.01055, height*0.01111);
+    endShape(CLOSE);
+    quad(-width*1.2, -height*2, -width*0.07773-2, -height*0.3125, width*0.07773+2, -height*0.3125, width*1.2, -height*2);
+    popMatrix();
   }
 }

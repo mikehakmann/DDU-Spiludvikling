@@ -27,6 +27,7 @@ void setup() {
   pSpeed = 8;
   hunterX = random(200, 2000);  //placeholder for hunter's spawn position
   hunterY = 500;
+  hSpeed = 6;
   dustCount = floor(height*0.8333);
   d = new Dust[dustCount];
   for (int i = 0; i<d.length; i++) {
@@ -50,10 +51,6 @@ void draw() {
     textSize(12);
     text(frameCount, width*0.005859, height*0.9896);
     
-    
-    p.playerRotation();
-    h.hunterRotation();
-
     for (int j = 0; j < d.length; j++) {
       d[j].updateDust();
 
@@ -64,9 +61,9 @@ void draw() {
         d[j].dustPos.y = 0 - d[j].dustSizeY;
       }
     }
-    
+    p.playerRotation();
     p.movePlayer();
-    
+    h.hunterRotation();
   }
   m.drawMap();
   
