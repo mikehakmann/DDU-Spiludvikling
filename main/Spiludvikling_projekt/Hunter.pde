@@ -1,12 +1,15 @@
 class Hunter {
   PVector hunterAim = new PVector(mouseX, mouseY);
   PVector hunterFacePlayer;
+  PVector targeting;
   float hunterAngle;
+  
   float deltaX;
   float deltaY;
 
 
   void hunterRotation() {
+    targeting = new PVector(deltaX, deltaY);
     hunterFacePlayer = new PVector((playerX+27)-hunterX, (playerY+16)-hunterY);
     hunterAngle = PVector.angleBetween(vertical, hunterFacePlayer);
     if (hunterX > playerX+27) {
@@ -28,9 +31,15 @@ class Hunter {
     if (frameCount > 200) {
       if (deltaX > deltaY) {
         hunterX += hSpeed;
+        if (hunterX > playerX+27) {
+          hunterX -= hSpeed;
+        }
       }
       if (deltaY > deltaX) {
         hunterY += hSpeed;
+        if (hunterY > playerY+16) {
+          hunterY -= hSpeed;
+        }
       }
       if (deltaX == deltaY) {
         int shadowdocs = floor(random(2));  //tilfældigheds-generator kræver naturligvis et tilfædigt navn
