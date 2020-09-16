@@ -1,3 +1,4 @@
+Boosts b = new Boosts();
 Collectables c = new Collectables();
 Dust[] d;
 Hunter h = new Hunter();
@@ -12,7 +13,7 @@ SoundFile bgMusic;          //For at installere: Øverst i Processing, tryk "Ske
 
 boolean isLeft, isRight, isUp, isDown;
 boolean gamePaused = false;
-PImage player, hunter;
+PImage player, hunter, boost;
 PVector vertical = new PVector(0, 100);
 float playerX, playerY, pSpeed, hunterX, hunterY, hSpeed;
 int dustCount;
@@ -35,9 +36,9 @@ void setup() {
     d[i] = new Dust(random(width*0.0020, width*0.9980), random(height*0.0035, height*0.9965), random(width*0.00003906, width*0.0001171), random(height*0.00006944, height*0.0002083), random(70.0, 120.0), floor(random(width*0.001563, width*0.001953)), floor(random(height*0.002778, height*0.00347)));
   }
 
-  player = loadImage("Jerry.png");  //placeholder pic is 53x31 pixels
-  hunter = loadImage("Tom.png");  //placeholder pic is 250x260 pixels
-
+  player = loadImage("Jerry.png");    //pic is 53x31 pixels
+  hunter = loadImage("Tom.png");      //pic is 55x55 pixels
+  boost = loadImage("Boost.png"); //pic is 10x28 pixels
   imageMode(CENTER);
 }
 
@@ -67,7 +68,7 @@ void draw() {
     h.hunterRotation();
   }
   m.drawMap();
-  
+  b.speedBoost(500,500);
 }
 
 
