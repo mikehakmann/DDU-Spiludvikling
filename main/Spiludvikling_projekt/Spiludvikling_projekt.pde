@@ -22,7 +22,7 @@ void setup() {
   fullScreen(1);
   //bgMusic = new SoundFile(this, "/*bgMusic i .wav format*/");
   //bgMusic.loop();
-  playerX = width/2;            //placeholder for player's spawn position
+  playerX = width/2.3;            //placeholder for player's spawn position
   playerY = height/2;
   pSpeed = 8;
   hunterX = random(200, 2000);  //placeholder for hunter's spawn position

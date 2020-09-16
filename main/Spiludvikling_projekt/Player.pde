@@ -15,9 +15,21 @@ class Player {
     translate(playerX+27, playerY+16);
     rotate(-playerAngle);
     image(player, 0, 0);
-    p.flashlight();
-    circle(0, 0, 50);
     popMatrix();
+    //p.flashlight();
+    
+    fill(0);
+    beginShape();
+    vertex(0, 0);
+    vertex(width, 50);
+    pushMatrix();
+    translate(playerX+27, playerY+16);
+    rotate(-playerAngle);
+    vertex(playerX+450, playerY-250);
+    vertex(playerX+53, playerY-13);
+    vertex(playerX-27, playerY-13);
+    popMatrix();
+    endShape(CLOSE);
   }
 
   void movePlayer() {
@@ -52,31 +64,33 @@ class Player {
   
   void flashlight() {
     fill(0);
-    beginShape();
-    vertex(-width/2, -height/2+50);
-    vertex(playerX-27, playerY-13);
-    vertex(playerX+53, playerY-13);
-    vertex(playerX+450, playerY-250);
-    vertex(width/2, -height/2+50);
-    endShape(CLOSE);
-    beginShape();
-    vertex(width/2, -height/2);
-    vertex(playerX+450, playerY-250);
-    vertex(playerX+450, playerY+303);
-    vertex(width/2, height/2);
-    endShape(CLOSE);
-    beginShape();
-    vertex(width/2, height/2-50);
-    vertex(playerX+450, playerY+303);
-    vertex(playerX+53, playerY+45);
-    vertex(playerX, playerY+45);
-    vertex(-width/2, height/2-50);
-    endShape(CLOSE);
-    beginShape();
-    vertex(-width/2, height/2);
-    vertex(playerX, playerY+45);
-    vertex(playerX, playerY-13);
-    vertex(-width/2, -height/2);
-    endShape(CLOSE);
+    //beginShape();
+    //pushMatrix();
+    //vertex(0, 0);
+    //vertex(playerX-27, playerY-13);
+    //vertex(playerX+53, playerY-13);
+    //vertex(playerX+450, playerY-250);
+    //vertex(width, 50);
+    //popMatrix();
+    //endShape(CLOSE);
+    //beginShape();
+    //vertex(width/2, -height/2);
+    //vertex(playerX+450, playerY-250);
+    //vertex(playerX+450, playerY+303);
+    //vertex(width/2, height/2);
+    //endShape(CLOSE);
+    //beginShape();
+    //vertex(width/2, height/2-50);
+    //vertex(playerX+450, playerY+303);
+    //vertex(playerX+53, playerY+45);
+    //vertex(playerX, playerY+45);
+    //vertex(-width/2, height/2-50);
+    //endShape(CLOSE);
+    //beginShape();
+    //vertex(-width/2, height/2);
+    //vertex(playerX, playerY+45);
+    //vertex(playerX, playerY-13);
+    //vertex(-width/2, -height/2);
+    //endShape(CLOSE);
   }
 }
