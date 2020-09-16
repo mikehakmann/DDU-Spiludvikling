@@ -2,7 +2,8 @@ class Player {
   PVector playerAim = new PVector(mouseX, mouseY);
   PVector playerFaceCursor;
   float playerAngle;
-
+  int LommelygteBredde = 360;
+  int LommelygteLengde = 135;
 
   void playerRotation() {
     p.playerFaceCursor = new PVector((playerX+27)-mouseX, (playerY+16)-mouseY);
@@ -17,19 +18,26 @@ class Player {
     image(player, 0, 0);
     popMatrix();
     //p.flashlight();
-    
+    pushMatrix();    
     fill(0);
-    beginShape();
-    vertex(0, 0);
-    vertex(width, 50);
-    pushMatrix();
-    translate(playerX+27, playerY+16);
+    translate (playerX+27, playerY+16);
     rotate(-playerAngle);
-    vertex(playerX+450, playerY-250);
-    vertex(playerX+53, playerY-13);
-    vertex(playerX-27, playerY-13);
-    popMatrix();
+    noStroke();
+    beginShape();
+    vertex(29, 16);
+    vertex(29, -16);
+    vertex(LommelygteLengde, -LommelygteBredde);//Højre lommelygte del bredde og længde
+    vertex(3000, -3000);
+    vertex(3000, 3000);
+    vertex(-3000, 3000);
+    vertex(-3000, 16);
+    vertex(-3000, -3000);
+    vertex(-LommelygteLengde, -LommelygteBredde);//lommelygte bredde og længde
+    vertex(-29, -16);
+    vertex(-29, 16);
     endShape(CLOSE);
+    quad(-3000,-3000,-LommelygteLengde-1, -LommelygteBredde,LommelygteLengde+1, -LommelygteBredde,3000,-3000);
+    popMatrix();
   }
 
   void movePlayer() {
@@ -61,7 +69,7 @@ class Player {
       return b;
     }
   }
-  
+
   void flashlight() {
     fill(0);
     //beginShape();
