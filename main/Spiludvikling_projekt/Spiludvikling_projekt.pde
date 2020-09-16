@@ -22,19 +22,19 @@ int dustCount;
 void setup() {
   fullScreen(1);
   cursor(CROSS);
-  bgMusic = new SoundFile(this, "bagmusic.wav");  //placeholder musik
-  bgMusic.loop();
-  playerX = width/2.3;            //placeholder for player's spawn position
-  playerY = height/2;
+  //bgMusic = new SoundFile(this, "bagmusic.wav");  //placeholder musik
+  //bgMusic.loop();
+  playerX = 300;            //placeholder for player's spawn position
+  playerY = 300;
   pSpeed = 8;
-  hunterX = random(200, 2000);  //placeholder for hunter's spawn position
-  hunterY = 500;
+  hunterX = 200;  //placeholder for hunter's spawn position
+  hunterY = 200;
   hSpeed = 6;
   dustCount = floor(height*0.8333);
   d = new Dust[dustCount];
   for (int i = 0; i<d.length; i++) {
     d[i] = new Dust(random(width*0.0020, width*0.9980), random(height*0.0035, height*0.9965), random(width*0.00003906, width*0.0001171), random(height*0.00006944, height*0.0002083), random(70.0, 120.0), floor(random(width*0.001563, width*0.001953)), floor(random(height*0.002778, height*0.00347)));
-  }
+  }  //Hver støvpartikel kræver mange oplysninger - se Dust () constructoren
 
   player = loadImage("Jerry.png");    //pic is 53x31 pixels
   hunter = loadImage("Tom.png");      //pic is 55x55 pixels
@@ -63,12 +63,12 @@ void draw() {
         d[j].dustPos.y = 0 - d[j].dustSizeY;
       }
     }
+    b.speedBoost(500,500);
+    h.hunterRotation();  //kaldes før playerRotation(), fordi flashlight() køres derfra. På den måde dækkes Jægeren af lommelygtens mørke
     p.playerRotation();
     p.movePlayer();
-    h.hunterRotation();
   }
   m.drawMap();
-  b.speedBoost(500,500);
 }
 
 

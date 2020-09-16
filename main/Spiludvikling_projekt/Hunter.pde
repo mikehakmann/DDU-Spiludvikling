@@ -13,7 +13,8 @@ class Hunter {
 
     pushMatrix();
     translate(hunterX, hunterY);
-    rotate(-hunterAngle);
+    scale(width*0.0005469);
+    rotate(-hunterAngle - PI/1.41);
     image(hunter, 0, 0);
     popMatrix();
   }

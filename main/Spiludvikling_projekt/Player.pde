@@ -12,6 +12,7 @@ class Player {
 
     pushMatrix();
     translate(playerX+27, playerY+16);
+    scale(width*0.0003125);
     rotate(-playerAngle);
     image(player, 0, 0);
     popMatrix();

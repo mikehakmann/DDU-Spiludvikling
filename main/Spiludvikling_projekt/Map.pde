@@ -1,7 +1,7 @@
 class Map {
 
   void drawMap() {
-    fill(0);
+    fill(1);
     //rect(0, height-str, width, height);  //Border
     //rect(width-str, 0, width, height);   //Border
     //rect(0, 0, width, str);              //Border
