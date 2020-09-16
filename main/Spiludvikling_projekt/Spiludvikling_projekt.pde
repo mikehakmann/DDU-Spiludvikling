@@ -20,6 +20,7 @@ int dustCount;
 
 void setup() {
   fullScreen(1);
+  cursor(CROSS);
   //bgMusic = new SoundFile(this, "/*bgMusic i .wav format*/");
   //bgMusic.loop();
   playerX = width/2.3;            //placeholder for player's spawn position
