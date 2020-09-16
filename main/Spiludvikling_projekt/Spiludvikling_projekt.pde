@@ -6,20 +6,21 @@ Pause ps = new Pause();
 Player p = new Player();
 Stun s = new Stun();
 Traps t = new Traps();
+Boosts b = new Boosts();
 
 import processing.sound.*;  //VIGTIGt - Spillet bruger Processings Sound library. Spillet køres ikke, hvis du ikke har installeret det.
 SoundFile bgMusic;          //For at installere: Øverst i Processing, tryk "Sketch" -> "Import Library" -> "Add library" -> søg på "Sound" -> Download "Sound" af The Processing Foundation
 
 boolean isLeft, isRight, isUp, isDown;
 boolean gamePaused = false;
-PImage player, hunter;
+PImage player, hunter,boost;
 PVector vertical = new PVector(0, 100);
 float playerX, playerY, pSpeed, hunterX, hunterY, hSpeed;
 int dustCount;
 
 
 void setup() {
-  fullScreen(1);
+  fullScreen();
   //bgMusic = new SoundFile(this, "/*bgMusic i .wav format*/");
   //bgMusic.loop();
   playerX = width/2;            //placeholder for player's spawn position
@@ -35,7 +36,7 @@ void setup() {
 
   player = loadImage("Jerry.png");  //placeholder pic is 128x128 pixels
   hunter = loadImage("hunter.png");  //placeholder pic is 250x260 pixels
-
+  boost = loadImage("boost_ddu.png");
   imageMode(CENTER);
 }
 
@@ -69,6 +70,7 @@ void draw() {
     
   }
   m.drawMap();
+b.speedBoost(500,500);
 }
 
 
