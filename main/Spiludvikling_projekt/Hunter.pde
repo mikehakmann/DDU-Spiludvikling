@@ -65,8 +65,10 @@ class Hunter {
 
 
   void hunterStunned() {
-    if (deltaX <= width*0.02734 && deltaY <= height*0.04861) {
-      isTazed = true;
+    if (b.tazerPickedUp == true) {
+      if (deltaX <= width*0.02734 && deltaY <= height*0.04861) {
+        isTazed = true;
+      }
     }
   }
 }

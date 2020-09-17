@@ -14,7 +14,7 @@ SoundFile bgMusic;          //For at installere: Øverst i Processing, tryk "Ske
 boolean isLeft, isRight, isUp, isDown;
 boolean goLeft, goRight, goUp, goDown, isTazed = false;
 boolean gamePaused = false;
-PImage player, hunter, boost,tazer;
+PImage player, hunter, boost, tazer;
 PVector vertical = new PVector(0, 100);
 float playerX, playerY, pSpeed, hunterX, hunterY, hSpeed, deltaX, deltaY;
 int dustCount;
@@ -26,8 +26,8 @@ void setup() {
   cursor(CROSS);
   //bgMusic = new SoundFile(this, "bagmusic.wav");  //placeholder musik
   //bgMusic.loop();
-  playerX = 300;            //placeholder for player's spawn position
-  playerY = 300;
+  playerX = width*0.1172;            //placeholder for player's spawn position
+  playerY = height*0.2083;
   pSpeed = 8;
   hunterX = 200;  //placeholder for hunter's spawn position
   hunterY = 200;
@@ -68,13 +68,18 @@ void draw() {
     p.movePlayer();
     h.hunterSetMove();
     h.moveHunter();
+    m.drawMap();
+    b.speedBoost(500, 500);
+
+    fill(130, 255);
+    textAlign(LEFT);
+    textSize(height*0.0174);
+    text("Press 'p' to pause     Press 'o' to unpause", width*0.0117, height*0.03);
+    textSize(height*0.008333);
+    text(frameCount, width*0.005859, height*0.9896);
+    textSize(height*0.0174);
+    text("Items: ", width*0.3333, height*0.03);
   }
-  m.drawMap();
-  b.speedBoost(500, 500);
-  fill(130);
-  text("Press 'p' to pause     Press 'o' to unpause", width*0.0117, height*0.0208);
-  textSize(12);
-  text(frameCount, width*0.005859, height*0.9896);
 }
 
 
