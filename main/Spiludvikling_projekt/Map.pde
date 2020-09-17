@@ -1,18 +1,16 @@
-class WallBlock
-{
+class WallBlock {
   int x;
   int y;
   int w;
   int h;
-  WallBlock(int _x, int _y, int _width, int _height)
-  {
+  
+  WallBlock(int _x, int _y, int _width, int _height) {
     x = _x;
     y = _y;
     w = _width;
     h = _height;
   }
-  void Draw()
-  {
+  void Draw() {
     rect(x,y,w,h);
   }
 }
@@ -66,13 +64,12 @@ class Map {
     void drawMap() {
     fill(1);
 
-    rect(0, 0, width, 75 );  //Border
-    rect(0, 0, 75, height);   //Border
-    rect(0, height-50, width, 50);              //Border
-    rect(width-75, 0, 75, height);//Border
+    rect(0, 0, width, 75 );          //Border
+    rect(0, 0, 75, height);          //Border
+    rect(0, height-50, width, 50);   //Border
+    rect(width-75, 0, 75, height);   //Border
     
-    for(int i = 0; i < blocks.length; i++)
-    {
+    for(int i = 0; i < blocks.length; i++) {
       blocks[i].Draw();
     }
   }
