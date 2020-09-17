@@ -14,7 +14,7 @@ SoundFile bgMusic;          //For at installere: Øverst i Processing, tryk "Ske
 boolean isLeft, isRight, isUp, isDown;
 boolean goLeft, goRight, goUp, goDown = false;
 boolean gamePaused = false;
-PImage player, hunter, boost;
+PImage player, hunter, boost,tazer;
 PVector vertical = new PVector(0, 100);
 float playerX, playerY, pSpeed, hunterX, hunterY, hSpeed, deltaX, deltaY;
 int dustCount;
@@ -39,9 +39,10 @@ void setup() {
     d[i] = new Dust(random(width*0.0020, width*0.9980), random(height*0.0035, height*0.9965), random(width*0.00003906, width*0.0001171), random(height*0.00006944, height*0.0002083), random(70.0, 120.0), floor(random(width*0.001563, width*0.001953)), floor(random(height*0.002778, height*0.00347)));
   }  //Hver støvpartikel kræver mange oplysninger - se Dust () constructoren
 
-  player = loadImage("Jerry.png");    //pic is 53x31 pixels
-  hunter = loadImage("Tom.png");      //pic is 55x55 pixels
-  boost = loadImage("Boost.png"); //pic is 10x28 pixels
+  player = loadImage("Jerry.png");     //pic is 53x31 pixels
+  hunter = loadImage("Tom.png");       //pic is 55x55 pixels
+  boost = loadImage("Boost.png");      //pic is 10x28 pixels
+  tazer = loadImage("tazer ddu.png");  //pic is 20x27 pixels
   imageMode(CENTER);
 }
 

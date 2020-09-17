@@ -43,6 +43,10 @@ class Player {
     case +'D':
     case RIGHT:
       return isRight = b;
+      
+    case 'Q':
+      return b;
+    
 
     default:
       return b;

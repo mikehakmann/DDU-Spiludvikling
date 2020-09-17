@@ -25,7 +25,7 @@ class Boosts {
     image(boost, x, y);
     if (playerX+26   > x-10 && playerX+26 < x &&
       playerY+15 > y-28 && playerY+15 < y) {
-      pSpeed += 10;
+      pSpeed += 3;
       used = true;
     }
   }
