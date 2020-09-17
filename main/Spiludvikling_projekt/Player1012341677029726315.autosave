@@ -45,8 +45,8 @@ class Player {
       return isRight = b;
       
     case 'Q':
-      h.hunterStunned();
-    
+      return b;
+
     default:
       return b;
     }
