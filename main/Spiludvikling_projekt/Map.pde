@@ -2,19 +2,12 @@ class Map {
 
   void drawMap() {
     fill(1);
-    //rect(0, height-str, width, height);  //Border
-    //rect(width-str, 0, width, height);   //Border
-    //rect(0, 0, width, str);              //Border
-    //rect(0, 0, str, height);             //Border
 
-    rect(0, 0, width,75 );  //Border
-    rect(0, 0,75 ,height);   //Border
-    rect(0, height-50,width ,50);              //Border
-    rect(width-75, 0,75 ,height);             //Border
-
-    fill(50);
-    //rect(0, 1275, 3000, 75);  //border2X
-    //rect(2250, 0, 75, 3000);//border2Y
+    rect(0, 0, width, 75 );  //Border
+    rect(0, 0, 75, height);   //Border
+    rect(0, height-50, width, 50);              //Border
+    rect(width-75, 0, 75, height);             //Border
+    
     fill(0);
     rect(600, 75, 75, 300);   //1
     rect(75, 450, 600, 75);   //2
