@@ -3,7 +3,7 @@ class Hunter {
   PVector hunterFacePlayer;
   PVector targeting;
   float hunterAngle;
-  
+
   float deltaX;
   float deltaY;
 
@@ -23,13 +23,13 @@ class Hunter {
     image(hunter, 0, 0);
     popMatrix();
   }
-  
-  
+
+
   void moveHunter() {
     hunterX = constrain(hunterX + hSpeed*(int(goRight) - int(goLeft)), 64, width  - 128);
     hunterY = constrain(hunterY + hSpeed*(int(goDown)  - int(goUp)), 75, height - 81);
   }
-  
+
 
   void hunterSetMove() {
     deltaX = abs(playerX+27 - hunterX);

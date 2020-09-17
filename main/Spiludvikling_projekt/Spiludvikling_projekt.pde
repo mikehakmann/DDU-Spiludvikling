@@ -14,20 +14,20 @@ SoundFile bgMusic;          //For at installere: Øverst i Processing, tryk "Ske
 boolean isLeft, isRight, isUp, isDown;
 boolean goLeft, goRight, goUp, goDown = false;
 boolean gamePaused = false;
-PImage player, hunter, boost,tazer,piano,pianoFaldt,nøgle,bucket,bucketFaldt;
+PImage player, hunter, boost,tazer,piano,pianoFaldt,noegle,bucket,bucketFaldt;
 PVector vertical = new PVector(0, 100);
 float playerX, playerY, pSpeed, hunterX, hunterY, hSpeed, deltaX, deltaY;
 int dustCount;
 
 
 void setup() {
-  fullScreen(1);
+  fullScreen();
   cursor(CROSS);
   //bgMusic = new SoundFile(this, "bagmusic.wav");  //placeholder musik
   //bgMusic.loop();
   playerX = 300;            //placeholder for player's spawn position
   playerY = 300;
-  pSpeed = 8;
+  pSpeed = 1;
   hunterX = 200;  //placeholder for hunter's spawn position
   hunterY = 200;
   hSpeed = 4;
@@ -45,7 +45,7 @@ void setup() {
   tazer = loadImage("tazer ddu.png");  //pic is 20x27 pixels
   piano = loadImage("piano_ddu.png");
   pianoFaldt = loadImage("piano faldt xtra.png");
-  nøgle = loadImage("ddu_key.png");
+  noegle = loadImage("ddu_key.png");
   bucket = loadImage("Bucket ddu.png");
   bucketFaldt = loadImage("bucket faldet ddu.png");
   imageMode(CENTER);
@@ -68,6 +68,7 @@ void draw() {
       }
     }
     b.speedBoost(500, 500);
+    t.piano(200,300);
     h.hunterRotation();  //kaldes før playerRotation(), fordi flashlight() køres derfra. På den måde dækkes Jægeren af lommelygtens mørke
     p.playerRotation();
     p.movePlayer();
