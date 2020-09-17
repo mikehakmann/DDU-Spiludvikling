@@ -14,7 +14,7 @@ SoundFile bgMusic;          //For at installere: Øverst i Processing, tryk "Ske
 boolean isLeft, isRight, isUp, isDown;
 boolean goLeft, goRight, goUp, goDown = false;
 boolean gamePaused = false;
-PImage player, hunter, boost,tazer;
+PImage player, hunter, boost, tazer, floor;
 PVector vertical = new PVector(0, 100);
 float playerX, playerY, pSpeed, hunterX, hunterY, hSpeed, deltaX, deltaY;
 int dustCount;
@@ -43,6 +43,7 @@ void setup() {
   hunter = loadImage("Tom.png");       //pic is 55x55 pixels
   boost = loadImage("Boost.png");      //pic is 10x28 pixels
   tazer = loadImage("tazer ddu.png");  //pic is 20x27 pixels
+  floor = loadImage("floor.png");      //pic is 3000x3000 pixels
   imageMode(CENTER);
 }
 
@@ -50,7 +51,10 @@ void setup() {
 void draw() {
   ps.pauseGame();
   if (gamePaused == false) {
-    background(255);
+
+
+
+    image(floor, width/2, height/2);    //background
 
     for (int j = 0; j < d.length; j++) {
       d[j].updateDust();
