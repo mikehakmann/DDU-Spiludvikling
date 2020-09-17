@@ -1,8 +1,8 @@
 class Boosts {
-
+  boolean tazerPickedUp = false;
   boolean used = false;
-  void speedBoost(float x, float y) {  //places yellow square at randomized x- and y-coordinates, then checks if player is inside the square. If yes, increases player's speed and sets roll to 0 to ensure playerSpeed is only increased once (function runs as long as roll is correct, i.e. roll==1)
-    //noLoop();
+  boolean used2 = false;
+  void speedBoost(float x, float y) {  
     pushMatrix();
     translate(x, y);
 
@@ -12,13 +12,46 @@ class Boosts {
     if (used == false) {
       spawnBoost(200, 300);
     }
-  }
+    if (used2== false) {
+      spawnTazer(400, 300);
+    }
+
+    if (tazerPickedUp == true) {
+
+      spawnTazer(20, 20);
+    }
+  }  
   void spawnBoost(float x, float y) {
     image(boost, x, y);
-    if (playerX+26 > x-75 && playerX+26 < x &&
-        playerY+15 > y-75 && playerY+15 < y) {
+    if (playerX+26   > x-10 && playerX+26 < x &&
+      playerY+15 > y-28 && playerY+15 < y) {
       pSpeed += 10;
       used = true;
     }
   }
+
+  //spawner en Tazer som kan brugses til at stunne jægeren
+  void spawnTazer(float x, float y) {
+    image(tazer, x, y);
+    if (playerX+26   > x-20 && playerX+26 < x &&
+      playerY+15 > y-27 && playerY+15 < y) {
+      //pSpeed += 100;
+      tazerPickedUp = true;
+      used2 = true;
+    }
+  }
+
+  //void keyReleased() {
+  //  if (key == 'q' ||key == 'Q') {
+  //    if (tazerPickedUp == true) {
+  //      if(jægerX,jægerY == < playerX+200,playerY+200){
+        
+  //      //jægerX,jægerY = 0;
+  //      // i 20 sek
+  //      }
+        
+  //    tazerPickedUp = false;
+  //    }
+  //  }
+  //}
 }
