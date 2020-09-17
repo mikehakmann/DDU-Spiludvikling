@@ -2,23 +2,17 @@ class Boosts {
   boolean tazerPickedUp = false;
   boolean used = false;
   boolean used2 = false;
-  void speedBoost(float x, float y) {  
-    pushMatrix();
-    translate(x, y);
-
-    //scale(4);
-    //image(SBoost, 0, 0);
-    popMatrix();
+  void speedBoost(float x, float y) {
     if (used == false) {
       spawnBoost(200, 300);
     }
+    
     if (used2== false) {
       spawnTazer(400, 300);
     }
 
     if (tazerPickedUp == true) {
-
-      spawnTazer(20, 20);
+      spawnTazer(width*0.01367, height*0.3333);
     }
   }  
   void spawnBoost(float x, float y) {
