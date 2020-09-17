@@ -3,7 +3,6 @@ class Hunter {
   PVector hunterFacePlayer;
   PVector targeting;
   float hunterAngle;
-  
   float deltaX;
   float deltaY;
 
@@ -23,45 +22,51 @@ class Hunter {
     image(hunter, 0, 0);
     popMatrix();
   }
-  
-  
+
+
   void moveHunter() {
-    hunterX = constrain(hunterX + hSpeed*(int(goRight) - int(goLeft)), 64, width  - 128);
-    hunterY = constrain(hunterY + hSpeed*(int(goDown)  - int(goUp)), 75, height - 81);
+    hunterX = constrain(hunterX + hSpeed*(int(goRight) - int(goLeft)), width*0.025, width*0.95);
+    hunterY = constrain(hunterY + hSpeed*(int(goDown)  - int(goUp)), height*0.05208, height*0.9438);
   }
-  
+
 
   void hunterSetMove() {
     deltaX = abs(playerX+27 - hunterX);
     deltaY = abs(playerY+16 - hunterY);
 
     if (frameCount > 200) {
-      if (deltaX > deltaY && deltaX > 30) {
+      if (isTazed == false) {
+        if (deltaX > deltaY && deltaX > width*0.01172) {
+          goLeft = false;
+          goRight = true;
+          if (hunterX > playerX+27 && hunterX > width*0.01172) {
+            goRight = false;
+            goLeft = true;
+          }
+        }
+        if (deltaY > deltaX && deltaY > height*0.0208) {
+          goUp = false;
+          goDown = true;
+          if (hunterY > playerY+16 && hunterY > height*0.0208) {
+            goDown = false;
+            goUp = true;
+          }
+        }
+      }
+
+      if (isTazed == true) {
         goLeft = false;
-        goRight = true;
-        if (hunterX > playerX+27 && hunterX > 30) {
-          goRight = false;
-          goLeft = true;
-        }
-      }
-      if (deltaY > deltaX && deltaY > 30) {
+        goRight = false;
         goUp = false;
-        goDown = true;
-        if (hunterY > playerY+16 && hunterY > 30) {
-          goDown = false;
-          goUp = true;
-        }
+        goDown = false;
       }
-      //if (deltaX == deltaY) {
-      //  hunterX += hSpeed;
-      //  hunterY += hSpeed;
-      //  if (hunterX == playerY+27) {
-      //    hunterX -= hSpeed*2;
-      //  }
-      //  if (hunterY == playerY+16) {
-      //    hunterY -= hSpeed*2;
-      //  }
-      //}
+    }
+  }
+
+
+  void hunterStunned() {
+    if (deltaX <= width*0.02734 && deltaY <= height*0.04861) {
+      isTazed = true;
     }
   }
 }

@@ -22,6 +22,17 @@ class Player {
   void movePlayer() {
     playerX = constrain(playerX + pSpeed*(int(isRight) - int(isLeft)), 64, width  - 128);
     playerY = constrain(playerY + pSpeed*(int(isDown)  - int(isUp)), 75, height - 81);
+    
+    float playerCX = playerX+27;
+    float playerCY = playerY+16;
+    
+    for(int i = 0; i < m.blocks.length;i++)
+    {
+      if((playerCX > m.blocks[i].x && playerCX < (m.blocks[i].x+m.blocks[i].w)) && (playerCY > m.blocks[i].y  && playerCY < (m.blocks[i].y+m.blocks[i].h)))
+      {
+        println("My ladies - We hit a wall");
+      }
+    }
   }
 
 
@@ -45,9 +56,8 @@ class Player {
       return isRight = b;
       
     case 'Q':
-      return b;
+      h.hunterStunned();
     
-
     default:
       return b;
     }

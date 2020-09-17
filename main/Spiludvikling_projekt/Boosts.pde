@@ -23,10 +23,11 @@ class Boosts {
   }  
   void spawnBoost(float x, float y) {
     image(boost, x, y);
-    if (playerX+26   > x-10 && playerX+26 < x &&
-      playerY+15 > y-28 && playerY+15 < y) {
-      pSpeed += 3;
-      used = true;
+    if (playerX+26 > x-10 && playerX+26 < x) {
+      if (playerY+15 > y-28 && playerY+15 < y) {
+        pSpeed += 3;
+        used = true;
+      }
     }
   }
 
@@ -35,23 +36,8 @@ class Boosts {
     image(tazer, x, y);
     if (playerX+26   > x-20 && playerX+26 < x &&
       playerY+15 > y-27 && playerY+15 < y) {
-      //pSpeed += 100;
       tazerPickedUp = true;
       used2 = true;
     }
   }
-
-  //void keyReleased() {
-  //  if (key == 'q' ||key == 'Q') {
-  //    if (tazerPickedUp == true) {
-  //      if(jægerX,jægerY == < playerX+200,playerY+200){
-        
-  //      //jægerX,jægerY = 0;
-  //      // i 20 sek
-  //      }
-        
-  //    tazerPickedUp = false;
-  //    }
-  //  }
-  //}
 }
