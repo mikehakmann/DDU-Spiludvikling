@@ -23,33 +23,45 @@ class Hunter {
     image(hunter, 0, 0);
     popMatrix();
   }
-
+  
+  
   void moveHunter() {
+    hunterX = constrain(hunterX + hSpeed*(int(goRight) - int(goLeft)), 64, width  - 128);
+    hunterY = constrain(hunterY + hSpeed*(int(goDown)  - int(goUp)), 75, height - 81);
+  }
+  
+
+  void hunterSetMove() {
     deltaX = abs(playerX+27 - hunterX);
     deltaY = abs(playerY+16 - hunterY);
 
     if (frameCount > 200) {
-      if (deltaX > deltaY) {
-        hunterX += hSpeed;
-        if (hunterX > playerX+27) {
-          hunterX -= hSpeed;
+      if (deltaX > deltaY && deltaX > 30) {
+        goLeft = false;
+        goRight = true;
+        if (hunterX > playerX+27 && hunterX > 30) {
+          goRight = false;
+          goLeft = true;
         }
       }
-      if (deltaY > deltaX) {
-        hunterY += hSpeed;
-        if (hunterY > playerY+16) {
-          hunterY -= hSpeed;
+      if (deltaY > deltaX && deltaY > 30) {
+        goUp = false;
+        goDown = true;
+        if (hunterY > playerY+16 && hunterY > 30) {
+          goDown = false;
+          goUp = true;
         }
       }
-      if (deltaX == deltaY) {
-        int shadowdocs = floor(random(2));  //tilfældigheds-generator kræver naturligvis et tilfædigt navn
-        if (shadowdocs == 1) {
-          hunterX += hSpeed;
-        }
-        if (shadowdocs == 2) {
-          hunterY += hSpeed;
-        }
-      }
+      //if (deltaX == deltaY) {
+      //  hunterX += hSpeed;
+      //  hunterY += hSpeed;
+      //  if (hunterX == playerY+27) {
+      //    hunterX -= hSpeed*2;
+      //  }
+      //  if (hunterY == playerY+16) {
+      //    hunterY -= hSpeed*2;
+      //  }
+      //}
     }
   }
 }

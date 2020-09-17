@@ -12,6 +12,7 @@ import processing.sound.*;  //VIGTIGt - Spillet bruger Processings Sound library
 SoundFile bgMusic;          //For at installere: Øverst i Processing, tryk "Sketch" -> "Import Library" -> "Add library" -> søg på "Sound" -> Download "Sound" af The Processing Foundation
 
 boolean isLeft, isRight, isUp, isDown;
+boolean goLeft, goRight, goUp, goDown = false;
 boolean gamePaused = false;
 PImage player, hunter, boost;
 PVector vertical = new PVector(0, 100);
@@ -29,7 +30,7 @@ void setup() {
   pSpeed = 8;
   hunterX = 200;  //placeholder for hunter's spawn position
   hunterY = 200;
-  hSpeed = 6;
+  hSpeed = 4;
   deltaX = abs(playerX+27 - hunterX);
   deltaY = abs(playerY+16 - hunterY);
   dustCount = floor(height*0.8333);
@@ -64,6 +65,7 @@ void draw() {
     h.hunterRotation();  //kaldes før playerRotation(), fordi flashlight() køres derfra. På den måde dækkes Jægeren af lommelygtens mørke
     p.playerRotation();
     p.movePlayer();
+    h.hunterSetMove();
     h.moveHunter();
   }
   m.drawMap();
