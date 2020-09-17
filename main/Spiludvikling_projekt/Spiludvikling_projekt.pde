@@ -2,7 +2,7 @@ Boosts b = new Boosts();
 Collectables c = new Collectables();
 Dust[] d;
 Hunter h = new Hunter();
-Map m = new Map();
+Map m;
 Pause ps = new Pause();
 Player p = new Player();
 Stun s = new Stun();
@@ -21,6 +21,7 @@ int dustCount;
 
 
 void setup() {
+  m = new Map();
   fullScreen(1);
   cursor(CROSS);
   //bgMusic = new SoundFile(this, "bagmusic.wav");  //placeholder musik
