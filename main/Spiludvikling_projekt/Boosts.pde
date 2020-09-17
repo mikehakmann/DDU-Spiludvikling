@@ -6,8 +6,6 @@ class Boosts {
     pushMatrix();
     translate(x, y);
 
-    //scale(4);
-    //image(SBoost, 0, 0);
     popMatrix();
     if (used == false) {
       spawnBoost(200, 300);

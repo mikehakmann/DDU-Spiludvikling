@@ -14,7 +14,7 @@ SoundFile bgMusic;          //For at installere: Øverst i Processing, tryk "Ske
 boolean isLeft, isRight, isUp, isDown;
 boolean goLeft, goRight, goUp, goDown = false;
 boolean gamePaused = false;
-PImage player, hunter, boost,tazer;
+PImage player, hunter, boost,tazer,piano,pianoFaldt,nøgle,bucket,bucketFaldt;
 PVector vertical = new PVector(0, 100);
 float playerX, playerY, pSpeed, hunterX, hunterY, hSpeed, deltaX, deltaY;
 int dustCount;
@@ -43,6 +43,11 @@ void setup() {
   hunter = loadImage("Tom.png");       //pic is 55x55 pixels
   boost = loadImage("Boost.png");      //pic is 10x28 pixels
   tazer = loadImage("tazer ddu.png");  //pic is 20x27 pixels
+  piano = loadImage("piano_ddu.png");
+  pianoFaldt = loadImage("piano faldt xtra.png");
+  nøgle = loadImage("ddu_key.png");
+  bucket = loadImage("Bucket ddu.png");
+  bucketFaldt = loadImage("bucket faldet ddu.png");
   imageMode(CENTER);
 }
 
