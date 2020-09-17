@@ -5,6 +5,7 @@ class Hunter {
   float hunterAngle;
   float deltaX;
   float deltaY;
+  int counter = 0;
 
 
   void hunterRotation() {
@@ -19,6 +20,12 @@ class Hunter {
     translate(hunterX, hunterY);
     scale(width*0.0005469);
     rotate(-hunterAngle - PI/1.41);
+    //if (isTazed == true) {
+    //  tint(200, 150);
+    //}                          //forsøgte at gøre Jægeren lidt mørkere, når han er stunned
+    //else {                     //men tint() ser ikke ud til at kunne gøre billeder mørkere
+    //  tint(255, 255);
+    //}
     image(hunter, 0, 0);
     popMatrix();
   }
@@ -54,11 +61,17 @@ class Hunter {
         }
       }
 
-      if (isTazed == true) {
+      if (isTazed == true && counter == 0) {
         goLeft = false;
         goRight = false;
         goUp = false;
         goDown = false;
+        b.tazerUsed = true;
+        startTimer = millis();
+        counter += 1;
+      }
+      if (millis() - startTimer >= 5000) {
+        isTazed = false;
       }
     }
   }

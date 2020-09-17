@@ -17,7 +17,7 @@ boolean gamePaused = false;
 PImage player, hunter, boost, tazer;
 PVector vertical = new PVector(0, 100);
 float playerX, playerY, pSpeed, hunterX, hunterY, hSpeed, deltaX, deltaY;
-int dustCount;
+int startTimer, dustCount;
 
 
 void setup() {
@@ -26,6 +26,8 @@ void setup() {
   cursor(CROSS);
   //bgMusic = new SoundFile(this, "bagmusic.wav");  //placeholder musik
   //bgMusic.loop();
+  
+  startTimer = millis();
   playerX = width*0.1172;            //placeholder for player's spawn position
   playerY = height*0.2083;
   pSpeed = 8;
@@ -69,7 +71,7 @@ void draw() {
     h.hunterSetMove();
     h.moveHunter();
     m.drawMap();
-    b.speedBoost(500, 500);
+    b.boost(500, 500);
 
     fill(130, 255);
     textAlign(LEFT);

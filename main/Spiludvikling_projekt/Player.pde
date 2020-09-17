@@ -14,6 +14,7 @@ class Player {
     translate(playerX+27, playerY+16);
     scale(width*0.0003125);
     rotate(-playerAngle);
+    //tint(255, 255);
     image(player, 0, 0);
     popMatrix();
     //p.flashlight();
@@ -38,23 +39,23 @@ class Player {
 
 
   boolean playerSetMove(int k, boolean b) {
-    switch (k) {
-    case +'W':
-    case UP:
-      return isUp = b;
-
-    case +'S':
-    case DOWN:
-      return isDown = b;
-
-    case +'A':
-    case LEFT:
-      return isLeft = b;
-
-    case +'D':
-    case RIGHT:
-      return isRight = b;
-      
+    switch (k) {                            //NOTE OM "COLLISION"
+    case +'W':                              //
+    case UP:                                //Hvis man prøver at bevæge sig (trykker w, a, s eller d)
+      return isUp = b;                      //Så tjek om der er plads til at rykke sig "pSpeed" længere i dén retning
+                                            //Hvis ja, så:
+    case +'S':                              //playerX + pSpeed    (eller hvilken retning man nu skal)
+    case DOWN:                              //
+      return isDown = b;                    //HVIS IKKE:
+                                            //så pdater IKKE spillers position.
+    case +'A':                              //
+    case LEFT:                              //på den måde bevæger man sig kun
+      return isLeft = b;                    //hvis der er plads til det.
+                                            //pSpeed er hvor meget man rykker sig hvert frame
+    case +'D':                              //
+    case RIGHT:                             //så hvis man ikke kan rykke sig pSpeed længere i en retning
+      return isRight = b;                   //så må der være mindre end pSpeed plads
+                                            //og derfor, ville man (hvis rykkede sig alligevel) ende inde i en væg.
     case 'Q':
       h.hunterStunned();
     
