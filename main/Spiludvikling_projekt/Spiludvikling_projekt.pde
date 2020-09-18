@@ -81,6 +81,7 @@ void draw() {
     h.moveHunter();
     m.drawMap();
     b.boost(500, 500);
+    m.drawRoom();
     c.placeKey();
 
     fill(130, 255);

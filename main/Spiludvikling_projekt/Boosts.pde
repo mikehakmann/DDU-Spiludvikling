@@ -23,10 +23,13 @@ class Boosts {
 
     //tegner et rødt kryds over tazeren ud for "Items", efter man har brugt den
     if (tazerUsed == true) {
+      
       stroke(255, 0, 0);
       strokeWeight(2);
       line(width*0.37 - 10, height*0.026 - 17, width*0.37 + 10, height*0.026 + 17);
       line(width*0.37 - 10, height*0.026 + 17, width*0.37 + 10, height*0.026 - 17);
+      noStroke();
+    
     }
   }  
 
