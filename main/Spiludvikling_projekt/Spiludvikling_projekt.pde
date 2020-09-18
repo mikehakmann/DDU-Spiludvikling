@@ -14,7 +14,7 @@ SoundFile bgMusic;          //For at installere: Øverst i Processing, tryk "Ske
 boolean isLeft, isRight, isUp, isDown;
 boolean goLeft, goRight, goUp, goDown, isStunned = false;
 boolean gamePaused = false;
-PImage player, hunter, boost, tazer, doorKey;
+PImage player, hunter, boost, tazer, doorKey, piano, pianoFaldt, bucket, bucketFaldt;
 PVector vertical = new PVector(0, 100);
 float playerX, playerY, playerCX, playerCY, pSpeed, hunterX, hunterY, hSpeed, deltaX, deltaY;
 int startTimer, dustCount;
@@ -24,8 +24,8 @@ void setup() {
   m = new Map();
   fullScreen(1);
   cursor(CROSS);
-  //bgMusic = new SoundFile(this, "bagmusic.wav");  //placeholder musik
-  //bgMusic.loop();
+  bgMusic = new SoundFile(this, "baggrundsmusik.wav");  //placeholder musik
+  bgMusic.loop();
 
   startTimer = millis();
   playerX = width*0.1172;            //placeholder for player's spawn position
@@ -49,6 +49,10 @@ void setup() {
   boost = loadImage("Boost.png");      //pic is 10x28 pixels
   tazer = loadImage("tazer_ddu.png");  //pic is 20x27 pixels
   doorKey = loadImage("key_ddu.png");  //pic is 16x27 pixels
+  piano = loadImage("piano_ddu.png");
+  pianoFaldt = loadImage("piano_faldt_xtra.png");
+  bucket = loadImage("Bucket_ddu.png");
+  bucketFaldt = loadImage("bucket_faldet_ddu.png");
   imageMode(CENTER);
 }
 
@@ -68,11 +72,13 @@ void draw() {
         d[j].dustPos.y = 0 - d[j].dustSizeY;
       }
     }
+    t.piano(200,300);
+    t.bucket(400,300);
     h.hunterRotation();  //kaldes før playerRotation(), fordi flashlight() køres derfra. På den måde dækkes Jægeren af lommelygtens mørke
     p.playerRotation();
     p.movePlayer();
     h.hunterSetMove();
-    //h.moveHunter();
+    h.moveHunter();
     m.drawMap();
     b.boost(500, 500);
     c.placeKey();
