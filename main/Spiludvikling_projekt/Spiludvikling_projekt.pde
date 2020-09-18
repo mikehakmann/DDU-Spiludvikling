@@ -24,8 +24,8 @@ void setup() {
   m = new Map();
   fullScreen(1);
   cursor(CROSS);
-  bgMusic = new SoundFile(this, "baggrundsmusik.wav");  //placeholder musik
-  bgMusic.loop();
+  //bgMusic = new SoundFile(this, "baggrundsmusik.wav");  //loader musik-filen
+  //bgMusic.loop();  //looper musikken, så den aldrig stopper, bare starter forfra, når den når til enden
 
   startTimer = millis();
   playerX = width*0.1172;            //placeholder for player's spawn position
@@ -72,8 +72,8 @@ void draw() {
         d[j].dustPos.y = 0 - d[j].dustSizeY;
       }
     }
-    t.piano(200,300);
-    t.bucket(400,300);
+    t.piano(200, 300);
+    t.bucket(400, 300);
     h.hunterRotation();  //kaldes før playerRotation(), fordi flashlight() køres derfra. På den måde dækkes Jægeren af lommelygtens mørke
     p.playerRotation();
     p.movePlayer();
@@ -93,13 +93,14 @@ void draw() {
     text("Items: ", width*0.3333, height*0.03);
   }
   s.checkVictory();
+  //println(p.up, p.left, p.down, p.right);   //bare til at teste, spillers movement, så at kollision kan fikses.
 }
 
 
 void keyPressed() {
-  p.playerSetMove(keyCode, true);
+  p.playerSetMove(key, true);
 }
 
 void keyReleased() {
-  p.playerSetMove(keyCode, false);
+  p.playerSetMove(key, false);
 }
