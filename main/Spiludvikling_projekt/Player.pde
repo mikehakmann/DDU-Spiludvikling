@@ -2,7 +2,10 @@ class Player {
   PVector playerAim = new PVector(mouseX, mouseY);
   PVector playerFaceCursor;
   float playerAngle;
-  boolean up, left, down, right;
+  int above, onLeft, below, onRight;
+  int INTplayerCX, INTplayerCY = 0;
+  int black = -16777216;  //værdien som get() returnerer, hvis den pixel, den kigger på, er sort
+  
 
   void playerRotation() {
     p.playerFaceCursor = new PVector((playerCX)-mouseX, (playerCY)-mouseY);
@@ -24,7 +27,9 @@ class Player {
   void movePlayer() {
     playerCX = constrain(playerCX + pSpeed*(int(isRight) - int(isLeft)), 64, width  - 128);
     playerCY = constrain(playerCY + pSpeed*(int(isDown)  - int(isUp)), 75, height - 81);
-
+    
+    INTplayerCX = int(playerCX);
+    INTplayerCY = int(playerCY);
     //for (int i = 0; i < m.blocks.length; i++) {
     //  if (playerCX > m.blocks[i].x && playerCX < (m.blocks[i].x+m.blocks[i].w)) {
     //    if (playerCY > m.blocks[i].y  && playerCY < (m.blocks[i].y+m.blocks[i].h)) {
@@ -42,49 +47,63 @@ class Player {
       //for (int i = 0; i < m.blocks.length; i++) {
         //if (playerCY - pSpeed >= m.blocks[i].y  && playerCY - pSpeed <= (m.blocks[i].y+m.blocks[i].h)) { //tjekker om spillerens position i næste frame (hvis spilleren bevæger sig) er inden for en blok
         //  //return b;                     //hvis den er, så return b, som ikke ændrer på spillerens position
-        //  return up = false;
         //}
         //else {
-          return isUp = b;              //hvis den ikke er, så opdateres spillerens position.
-          //return up = true;
+          //return isUp = b;              //hvis den ikke er, så opdateres spillerens position.
         //}
       //}
+      //println(get(int(playerCX), int(playerCY - pSpeed)));
+      //colorMode(RGB);
+      above = get(INTplayerCX, INTplayerCY - pSpeed);
+      if (above == black) {
+        return b;
+      }
+      return isUp = b;
     }
     if (k == 'a') {
       //for (int i = 0; i < m.blocks.length; i++) {
         //if (playerCX - pSpeed >= m.blocks[i].x  && playerCX - pSpeed <= (m.blocks[i].x+m.blocks[i].w)) { //tjekker om spillerens position i næste frame (hvis spilleren bevæger sig) er inden for en blok
         //  //return b;                     //hvis den er, så return b, som ikke ændrer på spillerens position
-        //  return left = false;
         //}
         //else {
-          return isLeft = b;            //hvis den ikke er, så opdateres spillerens position.
-          //return left = true;
+          //return isLeft = b;            //hvis den ikke er, så opdateres spillerens position.
         //}
       //}
+      onLeft = get(INTplayerCX - pSpeed, INTplayerCY);
+      if (onLeft == black) {
+        return b;
+      }
+      return isLeft = b;
     }
     if (k == 's') {
       //for (int i = 0; i < m.blocks.length; i++) {
         //if (playerCY + pSpeed >= m.blocks[i].y  && playerCY + pSpeed <= (m.blocks[i].y+m.blocks[i].h)) { //tjekker om spillerens position i næste frame (hvis spilleren bevæger sig) er inden for en blok
         //  //return b;                     //hvis den er, så return b, som ikke ændrer på spillerens position
-        //  return down = false;
         //}
         //else {
-          return isDown = b;            //hvis den ikke er, så opdateres spillerens position.
-          //return down = true;
+          //return isDown = b;            //hvis den ikke er, så opdateres spillerens position.
         //}
       //}
+      below = get(INTplayerCX, INTplayerCY + pSpeed);
+      if (below == black) {
+        return b;
+      }
+      return isDown = b;
     }
     if (k == 'd') {
       //for (int i = 0; i < m.blocks.length; i++) {
         //if (playerCX + pSpeed >= m.blocks[i].x  && playerCX + pSpeed <= (m.blocks[i].x+m.blocks[i].w)) { //tjekker om spillerens position i næste frame (hvis spilleren bevæger sig) er inden for en blok
         //  //return b;                     //hvis den er, så return b, som ikke ændrer på spillerens position
-        //  return right = false;
         //}
         //else {
-          return isRight = b;           //hvis den ikke er, så opdateres spillerens position.
-          //return right = true;
+          //return isRight = b;           //hvis den ikke er, så opdateres spillerens position.
         //}
       //}
+      onRight = get(INTplayerCX + pSpeed, INTplayerCY);
+      if (onRight == black) {
+        return b;
+      }
+      return isRight = b;
     }
     if (k == 'q') {
       h.hunterStunned();

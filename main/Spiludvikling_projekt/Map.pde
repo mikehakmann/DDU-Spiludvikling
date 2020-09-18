@@ -63,7 +63,7 @@ class Map {
     };
   }
   void drawMap() {
-    fill(1);
+    fill(0);
     float d=100000;
 
     rect(0, 0, width, (75*d)/1440*height/d );          //Border

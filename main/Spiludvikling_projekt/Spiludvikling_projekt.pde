@@ -16,13 +16,15 @@ boolean goLeft, goRight, goUp, goDown, isStunned = false;
 boolean gamePaused = false;
 PImage player, hunter, boost, tazer, doorKey, piano, pianoFaldt, bucket, bucketFaldt;
 PVector vertical = new PVector(0, 100);
-float playerX, playerY, playerCX, playerCY, pSpeed, hunterX, hunterY, hSpeed, deltaX, deltaY;
+float playerX, playerY, playerCX, playerCY, hunterX, hunterY, deltaX, deltaY;
+int pSpeed, hSpeed;
 int startTimer, dustCount;
 
 
 void setup() {
   m = new Map();
   fullScreen(1);
+  //size(1000, 1000);
   cursor(CROSS);
   //bgMusic = new SoundFile(this, "baggrundsmusik.wav");  //loader musik-filen
   //bgMusic.loop();  //looper musikken, så den aldrig stopper, bare starter forfra, når den når til enden
@@ -62,16 +64,20 @@ void draw() {
   if (gamePaused == false) {
     background(255);
 
-    for (int j = 0; j < d.length; j++) {
-      d[j].updateDust();
+    //for (int j = 0; j < d.length; j++) {
+    //  d[j].updateDust();
 
-      if (d[j].dustPos.x < 0 - d[j].dustSizeX) {
-        d[j].dustPos.x = width + d[j].dustSizeX;
-      }
-      if (d[j].dustPos.y > height + d[j].dustSizeY) {
-        d[j].dustPos.y = 0 - d[j].dustSizeY;
-      }
-    }
+    //  if (d[j].dustPos.x < 0 - d[j].dustSizeX) {
+    //    d[j].dustPos.x = width + d[j].dustSizeX;
+    //  }
+    //  if (d[j].dustPos.y > height + d[j].dustSizeY) {
+    //    d[j].dustPos.y = 0 - d[j].dustSizeY;
+    //  }
+    //}
+    pushMatrix();
+    noStroke();
+    m.drawMap();
+    popMatrix();
     t.piano(200, 300);
     t.bucket(400, 300);
     h.hunterRotation();  //kaldes før playerRotation(), fordi flashlight() køres derfra. På den måde dækkes Jægeren af lommelygtens mørke
@@ -79,7 +85,6 @@ void draw() {
     p.movePlayer();
     h.hunterSetMove();
     h.moveHunter();
-    m.drawMap();
     b.boost(500, 500);
     c.placeKey();
 
@@ -92,8 +97,10 @@ void draw() {
     textSize(height*0.0174);
     text("Items: ", width*0.3333, height*0.03);
   }
+  pushMatrix();
+  noStroke();
   s.checkVictory();
-  //println(p.up, p.left, p.down, p.right);   //bare til at teste, spillers movement, så at kollision kan fikses.
+  popMatrix();
 }
 
 
