@@ -39,7 +39,7 @@ class Player {
   boolean playerSetMove(int k, boolean b) {
     //spillerens position er "playerC_" (enten X eller Y) og hvis spilleren bevæger sig, vil positionen i næste frame være "playerC_ + pSpeed"
     if (k == 'w') {
-      for (int i = 0; i < m.blocks.length; i++) {
+      //for (int i = 0; i < m.blocks.length; i++) {
         //if (playerCY - pSpeed >= m.blocks[i].y  && playerCY - pSpeed <= (m.blocks[i].y+m.blocks[i].h)) { //tjekker om spillerens position i næste frame (hvis spilleren bevæger sig) er inden for en blok
         //  //return b;                     //hvis den er, så return b, som ikke ændrer på spillerens position
         //  return up = false;
@@ -48,10 +48,10 @@ class Player {
           return isUp = b;              //hvis den ikke er, så opdateres spillerens position.
           //return up = true;
         //}
-      }
+      //}
     }
     if (k == 'a') {
-      for (int i = 0; i < m.blocks.length; i++) {
+      //for (int i = 0; i < m.blocks.length; i++) {
         //if (playerCX - pSpeed >= m.blocks[i].x  && playerCX - pSpeed <= (m.blocks[i].x+m.blocks[i].w)) { //tjekker om spillerens position i næste frame (hvis spilleren bevæger sig) er inden for en blok
         //  //return b;                     //hvis den er, så return b, som ikke ændrer på spillerens position
         //  return left = false;
@@ -60,10 +60,10 @@ class Player {
           return isLeft = b;            //hvis den ikke er, så opdateres spillerens position.
           //return left = true;
         //}
-      }
+      //}
     }
     if (k == 's') {
-      for (int i = 0; i < m.blocks.length; i++) {
+      //for (int i = 0; i < m.blocks.length; i++) {
         //if (playerCY + pSpeed >= m.blocks[i].y  && playerCY + pSpeed <= (m.blocks[i].y+m.blocks[i].h)) { //tjekker om spillerens position i næste frame (hvis spilleren bevæger sig) er inden for en blok
         //  //return b;                     //hvis den er, så return b, som ikke ændrer på spillerens position
         //  return down = false;
@@ -72,10 +72,10 @@ class Player {
           return isDown = b;            //hvis den ikke er, så opdateres spillerens position.
           //return down = true;
         //}
-      }
+      //}
     }
     if (k == 'd') {
-      for (int i = 0; i < m.blocks.length; i++) {
+      //for (int i = 0; i < m.blocks.length; i++) {
         //if (playerCX + pSpeed >= m.blocks[i].x  && playerCX + pSpeed <= (m.blocks[i].x+m.blocks[i].w)) { //tjekker om spillerens position i næste frame (hvis spilleren bevæger sig) er inden for en blok
         //  //return b;                     //hvis den er, så return b, som ikke ændrer på spillerens position
         //  return right = false;
@@ -84,7 +84,7 @@ class Player {
           return isRight = b;           //hvis den ikke er, så opdateres spillerens position.
           //return right = true;
         //}
-      }
+      //}
     }
     if (k == 'q') {
       h.hunterStunned();
