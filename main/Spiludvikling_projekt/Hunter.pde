@@ -10,9 +10,9 @@ class Hunter {
 
   void hunterRotation() {
     targeting = new PVector(deltaX, deltaY);
-    hunterFacePlayer = new PVector((playerX+27)-hunterX, (playerY+16)-hunterY);
+    hunterFacePlayer = new PVector((playerCX)-hunterX, (playerCY)-hunterY);
     hunterAngle = PVector.angleBetween(vertical, hunterFacePlayer);
-    if (hunterX > playerX+27) {
+    if (hunterX > playerCX) {
       hunterAngle *= -1;
     }
 
@@ -20,7 +20,7 @@ class Hunter {
     translate(hunterX, hunterY);
     scale(width*0.0005469);
     rotate(-hunterAngle - PI/1.41);
-    //if (isTazed == true) {
+    //if (isStunned == true) {
     //  tint(200, 150);
     //}                          //forsøgte at gøre Jægeren lidt mørkere, når han er stunned
     //else {                     //men tint() ser ikke ud til at kunne gøre billeder mørkere
@@ -38,15 +38,15 @@ class Hunter {
 
 
   void hunterSetMove() {
-    deltaX = abs(playerX+27 - hunterX);
-    deltaY = abs(playerY+16 - hunterY);
+    deltaX = abs(playerCX - hunterX);
+    deltaY = abs(playerCY - hunterY);
 
     if (frameCount > 200) {
-      if (isTazed == false) {
+      if (isStunned == false) {
         if (deltaX > deltaY && deltaX > width*0.01172) {
           goLeft = false;
           goRight = true;
-          if (hunterX > playerX+27 && hunterX > width*0.01172) {
+          if (hunterX > playerCX && hunterX > width*0.01172) {
             goRight = false;
             goLeft = true;
           }
@@ -54,14 +54,14 @@ class Hunter {
         if (deltaY > deltaX && deltaY > height*0.0208) {
           goUp = false;
           goDown = true;
-          if (hunterY > playerY+16 && hunterY > height*0.0208) {
+          if (hunterY > playerCY && hunterY > height*0.0208) {
             goDown = false;
             goUp = true;
           }
         }
       }
 
-      if (isTazed == true && counter == 0) {
+      if (isStunned == true && counter == 0) {
         goLeft = false;
         goRight = false;
         goUp = false;
@@ -71,7 +71,7 @@ class Hunter {
         counter += 1;
       }
       if (millis() - startTimer >= 5000) {
-        isTazed = false;
+        isStunned = false;
       }
     }
   }
@@ -80,7 +80,7 @@ class Hunter {
   void hunterStunned() {
     if (b.tazerPickedUp == true) {
       if (deltaX <= width*0.02734 && deltaY <= height*0.04861) {
-        isTazed = true;
+        isStunned = true;
       }
     }
   }

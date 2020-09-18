@@ -33,8 +33,8 @@ class Boosts {
   //tegner energidrikken som øger spillerens fart, hvis spilleren tager den
   void spawnBoost(float x, float y) {
     image(boost, x, y);
-    if (playerX+27 > x-31 && playerX+27 < x+31) {
-      if (playerY+16> y-29 && playerY+16 < y+29) {
+    if (playerCX > x-31 && playerCX < x+31) {
+      if (playerCY> y-29 && playerCY < y+29) {
         pSpeed += 2;
         used = true;  //sørger for at energidrikken forsvinder, efter spilleren har taget den.
       }
@@ -45,8 +45,8 @@ class Boosts {
   //tegner en tazer som kan brugses til at stunne Jægeren. Den forsvinder hvis spilleren kommer inden for rækkevigde af den.
   void spawnTazer(float x, float y) {
     image(tazer, x, y);
-    if (playerX+27 > x-25 && playerX+27 < x+25) {
-      if (playerY+16 > y-30 && playerY+16 < y+30) {
+    if (playerCX > x-25 && playerCX < x+25) {
+      if (playerCY > y-30 && playerCY < y+30) {
         tazerPickedUp = true;  //holder styr på, om spilleren har tazeren eller ej
       }
     }

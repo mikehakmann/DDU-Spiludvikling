@@ -5,18 +5,18 @@ Hunter h = new Hunter();
 Map m;
 Pause ps = new Pause();
 Player p = new Player();
-Stun s = new Stun();
+Screens s = new Screens();
 Traps t = new Traps();
 
 import processing.sound.*;  //VIGTIGt - Spillet bruger Processings Sound library. Spillet køres ikke, hvis du ikke har installeret det.
 SoundFile bgMusic;          //For at installere: Øverst i Processing, tryk "Sketch" -> "Import Library" -> "Add library" -> søg på "Sound" -> Download "Sound" af The Processing Foundation
 
 boolean isLeft, isRight, isUp, isDown;
-boolean goLeft, goRight, goUp, goDown, isTazed = false;
+boolean goLeft, goRight, goUp, goDown, isStunned = false;
 boolean gamePaused = false;
-PImage player, hunter, boost, tazer;
+PImage player, hunter, boost, tazer, doorKey;
 PVector vertical = new PVector(0, 100);
-float playerX, playerY, pSpeed, hunterX, hunterY, hSpeed, deltaX, deltaY;
+float playerX, playerY, playerCX, playerCY, pSpeed, hunterX, hunterY, hSpeed, deltaX, deltaY;
 int startTimer, dustCount;
 
 
@@ -26,16 +26,18 @@ void setup() {
   cursor(CROSS);
   //bgMusic = new SoundFile(this, "bagmusic.wav");  //placeholder musik
   //bgMusic.loop();
-  
+
   startTimer = millis();
   playerX = width*0.1172;            //placeholder for player's spawn position
   playerY = height*0.2083;
+  playerCX = playerX+27;
+  playerCY = playerY+16;
   pSpeed = 8;
   hunterX = 200;  //placeholder for hunter's spawn position
   hunterY = 200;
   hSpeed = 4;
-  deltaX = abs(playerX+27 - hunterX);
-  deltaY = abs(playerY+16 - hunterY);
+  deltaX = abs(playerCX - hunterX);
+  deltaY = abs(playerCY - hunterY);
   dustCount = floor(height*0.8333);
   d = new Dust[dustCount];
   for (int i = 0; i<d.length; i++) {
@@ -45,7 +47,8 @@ void setup() {
   player = loadImage("Jerry.png");     //pic is 53x31 pixels
   hunter = loadImage("Tom.png");       //pic is 55x55 pixels
   boost = loadImage("Boost.png");      //pic is 10x28 pixels
-  tazer = loadImage("tazer ddu.png");  //pic is 20x27 pixels
+  tazer = loadImage("tazer_ddu.png");  //pic is 20x27 pixels
+  doorKey = loadImage("key_ddu.png");  //pic is 16x27 pixels
   imageMode(CENTER);
 }
 
@@ -69,9 +72,10 @@ void draw() {
     p.playerRotation();
     p.movePlayer();
     h.hunterSetMove();
-    h.moveHunter();
+    //h.moveHunter();
     m.drawMap();
     b.boost(500, 500);
+    c.placeKey();
 
     fill(130, 255);
     textAlign(LEFT);
@@ -82,6 +86,7 @@ void draw() {
     textSize(height*0.0174);
     text("Items: ", width*0.3333, height*0.03);
   }
+  s.checkVictory();
 }
 
 
