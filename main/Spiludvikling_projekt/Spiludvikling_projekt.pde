@@ -69,6 +69,7 @@ void draw() {
     }
     b.speedBoost(500, 500);
     t.piano(200,300);
+    t.bucket(400,300);
     h.hunterRotation();  //kaldes før playerRotation(), fordi flashlight() køres derfra. På den måde dækkes Jægeren af lommelygtens mørke
     p.playerRotation();
     p.movePlayer();

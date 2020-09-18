@@ -1,5 +1,6 @@
 class Traps {
   boolean pianoStanding = true;
+   boolean bucketStanding = true;
 
 
 
@@ -24,12 +25,13 @@ class Traps {
 
   void drawPiano(float x, float y) {
     pushMatrix();
-    //translate(x, y);
+    translate(x, y);
 
-    rotate(PI/3);
+    rotate(PI/2);
 
-    image(piano, x, y);
+    image(piano, 0, 0);
     popMatrix();
+   
     if (keyPressed) {
 
       if (key == 'e'||key=='E') {
@@ -38,7 +40,6 @@ class Traps {
         if (playerX+55  > x-55 && playerX < x+55 &&
           playerY+55 > y-55 && playerY  < y+55) {
           pianoStanding = false;
-          println("u got this, ur way ahead");
         }
       }
 
@@ -50,9 +51,62 @@ class Traps {
 
     //if(key == 'e'||key =='E'){
 
-    image(pianoFaldt, x, y);
+   pushMatrix();
+    translate(x, y);
+
+    rotate(PI/2);
+
+    image(pianoFaldt, 0, 0);
+    popMatrix();
+  }
+  
+  
+  
+  void bucket(float x, float y) {  
+
+    if (pianoStanding == true) {
+      drawBucket(440, 300);
+    }
+    if (pianoStanding == false) {
+      drawBucketFald(440, 300);
+    }
   }
 
+  void drawBucket(float x, float y) {
+    pushMatrix();
+    translate(x, y);
+
+    rotate(PI/2);
+
+    image(bucket, 0, 0);
+    popMatrix();
+   
+    if (keyPressed) {
+
+      if (key == 'e'||key=='E') {
+
+
+        if (playerX+55  > x-55 && playerX < x+55 &&
+          playerY+55 > y-55 && playerY  < y+55) {
+          bucketStanding = false;  
+        }
+      }
+
+      
+    }
+  }
+
+  void drawBucketFald(float x, float y) {
+
+
+   pushMatrix();
+    translate(x, y);
+
+    rotate(PI/2);
+
+    image(bucketFaldt, 0, 0);
+    popMatrix();
+  }
 
 
 
