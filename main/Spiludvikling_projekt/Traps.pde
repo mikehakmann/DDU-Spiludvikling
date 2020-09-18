@@ -64,10 +64,10 @@ class Traps {
   
   void bucket(float x, float y) {  
 
-    if (pianoStanding == true) {
+    if (bucketStanding == true) {
       drawBucket(440, 300);
     }
-    if (pianoStanding == false) {
+    if (bucketStanding == false) {
       drawBucketFald(440, 300);
     }
   }
