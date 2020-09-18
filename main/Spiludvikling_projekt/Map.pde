@@ -1,15 +1,16 @@
 class WallBlock {
-  int x;
-  int y;
-  int w;
-  int h;
+  float x;
+  float y;
+  float w;
+  float h;
   
-  WallBlock(int _x, int _y, int _width, int _height) {
+  WallBlock(float _x, float _y, float _width, float _height) {
     x = _x;
     y = _y;
     w = _width;
     h = _height;
-  }
+  
+}
   void Draw() {
     rect(x,y,w,h);
   }
@@ -19,55 +20,57 @@ class Map {
     WallBlock[] blocks;
     Map() {
     fill(0);
-    blocks = new WallBlock[]{
-    new WallBlock(600, 75, 75, 300),   //1
-    new WallBlock(75, 450, 600, 75),   //2
-    new WallBlock(75, 600, 600, 450), //3
-    new WallBlock(750, 1125, 75, 150),  //4
-    new WallBlock(750, 150, 75, 900),  //5
-    new WallBlock(900, 150, 75, 375),  //6
-    new WallBlock(900, 450, 300, 75),  //7
-    new WallBlock(1050, 75, 75, 300),   //8
-    new WallBlock(1050, 300, 600, 75),  //9
-    new WallBlock(1725, 75, 75, 450),  //10
-    new WallBlock(1275, 75, 450, 75),   //11
-    new WallBlock(1725, 450, 225, 75), //12
-    new WallBlock(2025, 450, 525, 75), //13
-    new WallBlock(1275, 450, 375, 75),  //14
-    new WallBlock(1575, 450, 75, 450), //15
-    new WallBlock(1725, 600, 75, 375), //16
-    new WallBlock(1575, 975, 450, 75), //17
-    new WallBlock(2100, 975, 150, 75), //18
-    new WallBlock(1950, 1050, 75, 75),  //19
-    new WallBlock(1950, 1200, 75, 225),  //20
-    new WallBlock(1425, 600, 75, 675),  //21
-    new WallBlock(900, 600, 150, 75),  //22
-    new WallBlock(1125, 600, 225, 75),  //23
-    new WallBlock(900, 600, 75, 300),  //24
-    new WallBlock(900, 825, 450, 75), //25
-    new WallBlock(1275, 675, 75, 150),  //26
-    new WallBlock(1875, 600, 375, 75), //27
-    new WallBlock(1875, 600, 75, 300), //28
-    new WallBlock(1875, 825, 150, 75), //29
-    new WallBlock(2100, 825, 150, 75), //30
-    new WallBlock(2250, 600, 75, 300), 
-    new WallBlock(2400, 525, 150, 900),
-    new WallBlock(2250, 975, 75, 300),
-    new WallBlock(2250, 1350, 75, 75),
-    new WallBlock(1425, 1350, 75, 75),
-    new WallBlock(1575, 1125, 300, 225),
-    new WallBlock(750, 1350, 75, 75),
-    new WallBlock(300, 1275, 75, 150),
-    new WallBlock(300, 1050, 75, 150)
+      float d=100000;
+    blocks = new WallBlock[]{    
+    new WallBlock((d*600)/2560*width/d, (75*d)/1440*height/d, (75*d)/2560*width/d, (300*d)/1440*height/d),   //1
+    new WallBlock((d*75)/2560*width/d, (450*d)/1440*height/d, (600*d)/2560*width/d, (75*d)/1440*height/d),   //2
+    new WallBlock((d*75)/2560*width/d, (600*d)/1440*height/d, (600*d)/2560*width/d, (450*d)/1440*height/d), //3
+    new WallBlock((d*750)/2560*width/d, (1125*d)/1440*height/d, (75*d)/2560*width/d, (150*d)/1440*height/d),  //4
+    new WallBlock((d*750)/2560*width/d, (150*d)/1440*height/d, (75*d)/2560*width/d, (900*d)/1440*height/d),  //5
+    new WallBlock((d*900)/2560*width/d, (150*d)/1440*height/d, (75*d)/2560*width/d, (375*d)/1440*height/d),  //6
+    new WallBlock((d*900)/2560*width/d, (450*d)/1440*height/d, (300*d)/2560*width/d, (75*d)/1440*height/d),  //7
+    new WallBlock((d*1050)/2560*width/d, (75*d)/1440*height/d, (75*d)/2560*width/d, (300*d)/1440*height/d),   //8
+    new WallBlock((d*1050)/2560*width/d, (300*d)/1440*height/d, (600*d)/2560*width/d, (75*d)/1440*height/d),  //9
+    new WallBlock((d*1725)/2560*width/d, (75*d)/1440*height/d, (75*d)/2560*width/d, (450*d)/1440*height/d),  //10
+    new WallBlock((d*1275)/2560*width/d, (75*d)/1440*height/d, (450*d)/2560*width/d, (75*d)/1440*height/d),   //11
+    new WallBlock((d*1725)/2560*width/d, (450*d)/1440*height/d, (225*d)/2560*width/d, (75*d)/1440*height/d), //12
+    new WallBlock((d*2025)/2560*width/d, (450*d)/1440*height/d, (525*d)/2560*width/d, (75*d)/1440*height/d), //13
+    new WallBlock((d*1275)/2560*width/d, (450*d)/1440*height/d, (375*d)/2560*width/d, (75*d)/1440*height/d),  //14
+    new WallBlock((d*1575)/2560*width/d, (450*d)/1440*height/d, (75*d)/2560*width/d, (450*d)/1440*height/d), //15
+    new WallBlock((d*1725)/2560*width/d, (600*d)/1440*height/d, (75*d)/2560*width/d, (375*d)/1440*height/d), //16
+    new WallBlock((d*1575)/2560*width/d, (975*d)/1440*height/d, (450*d)/2560*width/d, (75*d)/1440*height/d), //17
+    new WallBlock((d*2100)/2560*width/d, (975*d)/1440*height/d, (150*d)/2560*width/d, (75*d)/1440*height/d), //18
+    new WallBlock((d*1950)/2560*width/d, (1050*d)/1440*height/d, (75*d)/2560*width/d, (75*d)/1440*height/d),  //19
+    new WallBlock((d*1950)/2560*width/d, (1200*d)/1440*height/d, (75*d)/2560*width/d, (225*d)/1440*height/d),  //20
+    new WallBlock((d*1425)/2560*width/d, (600*d)/1440*height/d, (75*d)/2560*width/d, (675*d)/1440*height/d),  //21
+    new WallBlock((d*900)/2560*width/d, (600*d)/1440*height/d, (150*d)/2560*width/d, (75*d)/1440*height/d),  //22
+    new WallBlock((d*1125)/2560*width/d, (600*d)/1440*height/d, (225*d)/2560*width/d, (75*d)/1440*height/d),  //23
+    new WallBlock((d*900)/2560*width/d, (600*d)/1440*height/d, (75*d)/2560*width/d, (300*d)/1440*height/d),  //24
+    new WallBlock((d*900)/2560*width/d, (825*d)/1440*height/d, (450*d)/2560*width/d, (75*d)/1440*height/d), //25
+    new WallBlock((d*1275)/2560*width/d, (675*d)/1440*height/d, (75*d)/2560*width/d, (150*d)/1440*height/d),  //26
+    new WallBlock((d*1875)/2560*width/d, (600*d)/1440*height/d, (375*d)/2560*width/d, (75*d)/1440*height/d), //27
+    new WallBlock((d*1875)/2560*width/d, (600*d)/1440*height/d, (75*d)/2560*width/d, (300*d)/1440*height/d), //28
+    new WallBlock((d*1875)/2560*width/d, (825*d)/1440*height/d, (150*d)/2560*width/d, (75*d)/1440*height/d), //29
+    new WallBlock((d*2100)/2560*width/d, (825*d)/1440*height/d, (150*d)/2560*width/d, (75*d)/1440*height/d), //30
+    new WallBlock((d*2250)/2560*width/d, (600*d)/1440*height/d, (75*d)/2560*width/d, (300*d)/1440*height/d), 
+    new WallBlock((d*2400)/2560*width/d, (525*d)/1440*height/d, (150*d)/2560*width/d, (900*d)/1440*height/d),
+    new WallBlock((d*2250)/2560*width/d, (975*d)/1440*height/d, (75*d)/2560*width/d, (300*d)/1440*height/d),
+    new WallBlock((d*2250)/2560*width/d, (1350*d)/1440*height/d, (75*d)/2560*width/d, (75*d)/1440*height/d),
+    new WallBlock((d*1425)/2560*width/d, (1350*d)/1440*height/d, (75*d)/2560*width/d, (75*d)/1440*height/d),
+    new WallBlock((d*1575)/2560*width/d, (1125*d)/1440*height/d, (300*d)/2560*width/d, (225*d)/1440*height/d),
+    new WallBlock((d*750)/2560*width/d, (1350*d)/1440*height/d, (75*d)/2560*width/d, (75*d)/1440*height/d),
+    new WallBlock((d*300)/2560*width/d, (1275*d)/1440*height/d, (75*d)/2560*width/d, (150*d)/1440*height/d),
+    new WallBlock((d*300)/2560*width/d, (1050*d)/1440*height/d, (75*d)/2560*width/d, (150*d)/1440*height/d)
     };
   }
     void drawMap() {
     fill(1);
+      float d=100000;
 
-    rect(0, 0, width, 75 );          //Border
-    rect(0, 0, 75, height);          //Border
-    rect(0, height-50, width, 50);   //Border
-    rect(width-75, 0, 75, height);   //Border
+    rect(0, 0, width, (75*d)/1440*height/d );          //Border
+    rect(0, 0, (75*d)/2560*width/d, height);          //Border
+    rect(0, height-((50*d)/1440*height/d), width, (50*d)/1440*height/d);   //Border
+    rect(width-((75*d)/2560*width/d), 0, (75*d)/2560*width/d, height);   //Border
     
     for(int i = 0; i < blocks.length; i++) {
       blocks[i].Draw();
