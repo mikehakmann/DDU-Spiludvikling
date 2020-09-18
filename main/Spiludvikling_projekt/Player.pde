@@ -4,50 +4,58 @@ class Player {
   float playerAngle;
 
   void playerRotation() {
-    p.playerFaceCursor = new PVector((playerX+27)-mouseX, (playerY+16)-mouseY);
+    p.playerFaceCursor = new PVector((playerCX)-mouseX, (playerCY)-mouseY);
     p.playerAngle = PVector.angleBetween(vertical, playerFaceCursor);
-    if (mouseX > playerX+27) {
+    if (mouseX > playerCX) {
       playerAngle *= -1;
     }
 
     pushMatrix();
-    translate(playerX+27, playerY+16);
+    translate(playerCX, playerCY);
     scale(width*0.0003125);
     rotate(-playerAngle);
+    //tint(255, 255);
     image(player, 0, 0);
     popMatrix();
     //p.flashlight();
   }
 
   void movePlayer() {
-    playerX = constrain(playerX + pSpeed*(int(isRight) - int(isLeft)), 64, width  - 128);
-    playerY = constrain(playerY + pSpeed*(int(isDown)  - int(isUp)), 75, height - 81);
+    playerCX = constrain(playerCX + pSpeed*(int(isRight) - int(isLeft)), 64, width  - 128);
+    playerCY = constrain(playerCY + pSpeed*(int(isDown)  - int(isUp)), 75, height - 81);
+    
+    for(int i = 0; i < m.blocks.length;i++)
+    {
+      if((playerCX > m.blocks[i].x && playerCX < (m.blocks[i].x+m.blocks[i].w)) && (playerCY > m.blocks[i].y  && playerCY < (m.blocks[i].y+m.blocks[i].h)))
+      {
+        println("My ladies - We hit a wall");
+      }
+    }
   }
 
 
 
   boolean playerSetMove(int k, boolean b) {
-    switch (k) {
-    case +'W':
-    case UP:
-      return isUp = b;
-
-    case +'S':
-    case DOWN:
-      return isDown = b;
-
-    case +'A':
-    case LEFT:
-      return isLeft = b;
-
-    case +'D':
-    case RIGHT:
-      return isRight = b;
-      
+    switch (k) {                            //NOTE OM "COLLISION"
+    case +'W':                              //
+    case UP:                                //Hvis man prøver at bevæge sig (trykker w, a, s eller d)
+      return isUp = b;                      //Så tjek om der er plads til at rykke sig "pSpeed" længere i dén retning
+                                            //Hvis ja, så:
+    case +'S':                              //playerX + pSpeed    (eller hvilken retning man nu skal)
+    case DOWN:                              //
+      return isDown = b;                    //HVIS IKKE:
+                                            //så pdater IKKE spillers position.
+    case +'A':                              //
+    case LEFT:                              //på den måde bevæger man sig kun
+      return isLeft = b;                    //hvis der er plads til det.
+                                            //pSpeed er hvor meget man rykker sig hvert frame
+    case +'D':                              //
+    case RIGHT:                             //så hvis man ikke kan rykke sig pSpeed længere i en retning
+      return isRight = b;                   //så må der være mindre end pSpeed plads
+                                            //og derfor, ville man (hvis rykkede sig alligevel) ende inde i en væg.
     case 'Q':
-      return b;
+      h.hunterStunned();
     
-
     default:
       return b;
     }
@@ -56,7 +64,7 @@ class Player {
   void flashlight() {
     pushMatrix();    
     fill(0);
-    translate (playerX+27, playerY+16);
+    translate (playerCX, playerCY);
     rotate(-playerAngle);
     noStroke();
     beginShape();
