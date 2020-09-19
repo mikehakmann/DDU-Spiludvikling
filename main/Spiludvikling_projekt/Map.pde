@@ -19,57 +19,55 @@ class Map {
   WallBlock[] blocks;
   Map() {
     fill(0);
-    float d=100000;
     blocks = new WallBlock[]{    
-      new WallBlock((d*600)/2560*width/d, (75*d)/1440*height/d, (75*d)/2560*width/d, (300*d)/1440*height/d), //1
-      new WallBlock((d*75)/2560*width/d, (450*d)/1440*height/d, (600*d)/2560*width/d, (75*d)/1440*height/d), //2
-      new WallBlock((d*75)/2560*width/d, (600*d)/1440*height/d, (600*d)/2560*width/d, (450*d)/1440*height/d), //3
-      new WallBlock((d*750)/2560*width/d, (1125*d)/1440*height/d, (75*d)/2560*width/d, (150*d)/1440*height/d), //4
-      new WallBlock((d*750)/2560*width/d, (150*d)/1440*height/d, (75*d)/2560*width/d, (900*d)/1440*height/d), //5
-      new WallBlock((d*900)/2560*width/d, (150*d)/1440*height/d, (75*d)/2560*width/d, (375*d)/1440*height/d), //6
-      new WallBlock((d*900)/2560*width/d, (450*d)/1440*height/d, (300*d)/2560*width/d, (75*d)/1440*height/d), //7
-      new WallBlock((d*1050)/2560*width/d, (75*d)/1440*height/d, (75*d)/2560*width/d, (300*d)/1440*height/d), //8
-      new WallBlock((d*1050)/2560*width/d, (300*d)/1440*height/d, (600*d)/2560*width/d, (75*d)/1440*height/d), //9
-      new WallBlock((d*1725)/2560*width/d, (75*d)/1440*height/d, (75*d)/2560*width/d, (450*d)/1440*height/d), //10
-      new WallBlock((d*1275)/2560*width/d, (75*d)/1440*height/d, (450*d)/2560*width/d, (75*d)/1440*height/d), //11
-      new WallBlock((d*1725)/2560*width/d, (450*d)/1440*height/d, (225*d)/2560*width/d, (75*d)/1440*height/d), //12
-      new WallBlock((d*2025)/2560*width/d, (450*d)/1440*height/d, (525*d)/2560*width/d, (75*d)/1440*height/d), //13
-      new WallBlock((d*1275)/2560*width/d, (450*d)/1440*height/d, (375*d)/2560*width/d, (75*d)/1440*height/d), //14
-      new WallBlock((d*1575)/2560*width/d, (450*d)/1440*height/d, (75*d)/2560*width/d, (450*d)/1440*height/d), //15
-      new WallBlock((d*1725)/2560*width/d, (600*d)/1440*height/d, (75*d)/2560*width/d, (375*d)/1440*height/d), //16
-      new WallBlock((d*1575)/2560*width/d, (975*d)/1440*height/d, (450*d)/2560*width/d, (75*d)/1440*height/d), //17
-      new WallBlock((d*2100)/2560*width/d, (975*d)/1440*height/d, (150*d)/2560*width/d, (75*d)/1440*height/d), //18
-      new WallBlock((d*1950)/2560*width/d, (1050*d)/1440*height/d, (75*d)/2560*width/d, (75*d)/1440*height/d), //19
-      new WallBlock((d*1950)/2560*width/d, (1200*d)/1440*height/d, (75*d)/2560*width/d, (225*d)/1440*height/d), //20
-      new WallBlock((d*1425)/2560*width/d, (600*d)/1440*height/d, (75*d)/2560*width/d, (675*d)/1440*height/d), //21
-      new WallBlock((d*900)/2560*width/d, (600*d)/1440*height/d, (150*d)/2560*width/d, (75*d)/1440*height/d), //22
-      new WallBlock((d*1125)/2560*width/d, (600*d)/1440*height/d, (225*d)/2560*width/d, (75*d)/1440*height/d), //23
-      new WallBlock((d*900)/2560*width/d, (600*d)/1440*height/d, (75*d)/2560*width/d, (300*d)/1440*height/d), //24
-      new WallBlock((d*900)/2560*width/d, (825*d)/1440*height/d, (450*d)/2560*width/d, (75*d)/1440*height/d), //25
-      new WallBlock((d*1275)/2560*width/d, (675*d)/1440*height/d, (75*d)/2560*width/d, (150*d)/1440*height/d), //26
-      new WallBlock((d*1875)/2560*width/d, (600*d)/1440*height/d, (375*d)/2560*width/d, (75*d)/1440*height/d), //27
-      new WallBlock((d*1875)/2560*width/d, (600*d)/1440*height/d, (75*d)/2560*width/d, (300*d)/1440*height/d), //28
-      new WallBlock((d*1875)/2560*width/d, (825*d)/1440*height/d, (150*d)/2560*width/d, (75*d)/1440*height/d), //29
-      new WallBlock((d*2100)/2560*width/d, (825*d)/1440*height/d, (150*d)/2560*width/d, (75*d)/1440*height/d), //30
-      new WallBlock((d*2250)/2560*width/d, (600*d)/1440*height/d, (75*d)/2560*width/d, (300*d)/1440*height/d), 
-      new WallBlock((d*2400)/2560*width/d, (525*d)/1440*height/d, (150*d)/2560*width/d, (900*d)/1440*height/d), 
-      new WallBlock((d*2250)/2560*width/d, (975*d)/1440*height/d, (75*d)/2560*width/d, (300*d)/1440*height/d), 
-      new WallBlock((d*2250)/2560*width/d, (1350*d)/1440*height/d, (75*d)/2560*width/d, (75*d)/1440*height/d), 
-      new WallBlock((d*1425)/2560*width/d, (1350*d)/1440*height/d, (75*d)/2560*width/d, (75*d)/1440*height/d), 
-      new WallBlock((d*1575)/2560*width/d, (1125*d)/1440*height/d, (300*d)/2560*width/d, (225*d)/1440*height/d), 
-      new WallBlock((d*750)/2560*width/d, (1350*d)/1440*height/d, (75*d)/2560*width/d, (75*d)/1440*height/d), 
-      new WallBlock((d*300)/2560*width/d, (1275*d)/1440*height/d, (75*d)/2560*width/d, (150*d)/1440*height/d), 
-      new WallBlock((d*300)/2560*width/d, (1050*d)/1440*height/d, (75*d)/2560*width/d, (150*d)/1440*height/d)
+      new WallBlock(width*0.2344, height*0.0521, width*0.02930, height*0.2083), //1
+      new WallBlock(width*0.02930, height*0.3125, width*0.2344, height*0.0521), //2
+      new WallBlock(width*0.02930, height*0.4167, width*0.2344, height*0.3125), //3
+      new WallBlock(width*0.2930, height*0.7813, width*0.02930, height*0.1042), //4
+      new WallBlock(width*0.2930, height*0.1042, width*0.02930, height*0.6250), //5
+      new WallBlock(width*0.3516, height*0.1042, width*0.02930, height*0.2604), //6
+      new WallBlock(width*0.3516, height*0.3125, width*0.1172, height*0.0521), //7
+      new WallBlock(width*0.4102, height*0.0521, width*0.02930, height*0.2083), //8
+      new WallBlock(width*0.4102, height*0.2083, width*0.2344, height*0.0521), //9
+      new WallBlock(width*0.6738, height*0.0521, width*0.02930, height*0.3125), //10
+      new WallBlock(width*0.4980, height*0.0521, width*0.1758, height*0.0521), //11
+      new WallBlock(width*0.6738, height*0.3125, width*0.0879, height*0.0521), //12
+      new WallBlock(width*0.7910, height*0.3125, width*0.2051, height*0.0521), //13
+      new WallBlock(width*0.4980, height*0.3125, width*0.1465, height*0.0521), //14
+      new WallBlock(width*0.6152, height*0.3125, width*0.02930, height*0.3125), //15
+      new WallBlock(width*0.6738, height*0.4167, width*0.02930, height*0.2604), //16
+      new WallBlock(width*0.6152, height*0.6771, width*0.1758, height*0.0521), //17
+      new WallBlock(width*0.8203, height*0.6771, width*0.05859, height*0.0521), //18
+      new WallBlock(width*0.7617, height*0.7292, width*0.02930, height*0.0521), //19
+      new WallBlock(width*0.7617, height*0.8333, width*0.02930, height*0.1563), //20
+      new WallBlock(width*0.5566, height*0.4167, width*0.02930, height*0.4688), //21
+      new WallBlock(width*0.3516, height*0.4167, width*0.05859, height*0.0521), //22
+      new WallBlock(width*0.4395, height*0.4167, width*0.0879, height*0.0521), //23
+      new WallBlock(width*0.3516, height*0.4167, width*0.02930, height*0.2083), //24
+      new WallBlock(width*0.3516, height*0.5729, width*0.1758, height*0.0521), //25
+      new WallBlock(width*0.4980, height*0.4688, width*0.02930, height*0.1042), //26
+      new WallBlock(width*0.7324, height*0.4167, width*0.1465, height*0.0521), //27
+      new WallBlock(width*0.7324, height*0.4167, width*0.02930, height*0.2083), //28
+      new WallBlock(width*0.7324, height*0.5729, width*0.05859, height*0.0521), //29
+      new WallBlock(width*0.8203, height*0.5729, width*0.05859, height*0.0521), //30
+      new WallBlock(width*0.8789, height*0.4167, width*0.02930, height*0.2083), 
+      new WallBlock(width*0.9375, height*0.3646, width*0.05859, height*0.6250), 
+      new WallBlock(width*0.8789, height*0.6771, width*0.02930, height*0.2083), 
+      new WallBlock(width*0.8789, height*0.9375, width*0.02930, height*0.0521), 
+      new WallBlock(width*0.5566, height*0.9375, width*0.02930, height*0.0521), 
+      new WallBlock(width*0.6152, height*0.7813, width*0.1172, height*0.1563), 
+      new WallBlock(width*0.2930, height*0.9375, width*0.02930, height*0.0521), 
+      new WallBlock(width*0.1172, height*0.8854, width*0.02930, height*0.1042), 
+      new WallBlock(width*0.1172, height*0.7292, width*0.02930, height*0.1042)
     };
   }
   void drawMap() {
-    fill(1);
-    float d=100000;
+    fill(0);
 
-    rect(0, 0, width, (75*d)/1440*height/d );          //Border
-    rect(0, 0, (75*d)/2560*width/d, height);          //Border
-    rect(0, height-((75*d)/1440*height/d), width, (75*d)/1440*height/d);   //Border
-    rect(width-((75*d)/2560*width/d), 0, (75*d)/2560*width/d, height);   //Border
+    rect(0, 0, width, height*0.0521 );          //Border
+    rect(0, 0, width*0.02930, height);          //Border
+    rect(0, height*0.9479, width, height*0.0521);   //Border
+    rect(width*0.9707, 0, width*0.02930, height);   //Border
 
     for (int i = 0; i < blocks.length; i++) {
       blocks[i].Draw();
@@ -78,39 +76,37 @@ class Map {
 
 
   void drawRoom() {
-    float d=100000;
 
-    if (playerCX > (d*975)/2560*width/d && playerCX < (d*1275)/2560*width/d &&
-        playerCY> (625*d)/1440*height/d && playerCY < (850*d)/1440*height/d) 
-     {} else {
-    rect((d*975)/2560*width/d, (625*d)/1440*height/d, (300*d)/2560*width/d, (225*d)/1440*height/d);
-     }
-     
-    if (playerCX > (d*1950)/2560*width/d && playerCX < (d*2250)/2560*width/d &&
-        playerCY> (600*d)/1440*height/d && playerCY < (855*d)/1440*height/d) 
-     {} else {
-      rect((d*1950)/2560*width/d, (600*d)/1440*height/d, (300*d)/2560*width/d, (275*d)/1440*height/d);
+    if (playerCX > width*0.3809 && playerCX < width*0.4980  &&  playerCY> height*0.4340 && playerCY < height*0.5903) {
+      //do nothing
+    } else {
+      rect(width*0.3809, height*0.4340, width*0.1172, height*0.1563);
     }
-    
-     if (playerCX > (d*75)/2560*width/d && playerCX < (d*350)/2560*width/d &&
-        playerCY> (1050*d)/1440*height/d && playerCY < (1425*d)/1440*height/d) 
-     {} else {
-     rect((d*75)/2560*width/d, (1050*d)/1440*height/d, (275*d)/2560*width/d, (375*d)/1440*height/d);
+
+    if (playerCX > width*0.7617 && playerCX < width*0.8789  &&  playerCY> height*0.4167 && playerCY < height*0.5938) {
+      //do nothing
+    } else {
+      rect(width*0.7617, height*0.4167, width*0.1172, height*0.1910);
     }
-    
-    
-    if (playerCX > (d*75)/2560*width/d && playerCX < (d*650)/2560*width/d &&
-        playerCY> (75*d)/1440*height/d && playerCY < (450*d)/1440*height/d) 
-     {} else {
-    rect((d*75)/2560*width/d, (75*d)/1440*height/d, (575*d)/2560*width/d, (375*d)/1440*height/d);
-     }
-     
-     
-     if (playerCX > (d*1800)/2560*width/d && playerCX < (d*2500)/2560*width/d &&
-         playerCY > (75*d)/1440*height/d && playerCY < (500*d)/1440*height/d) 
-     {} else {
-     rect((d*1800)/2560*width/d, (75*d)/1440*height/d, (700*d)/2560*width/d, (425*d)/1440*height/d);
-  }
-     
+
+    if (playerCX > width*0.02930 && playerCX < width*0.1367  &&  playerCY> height*0.7292 && playerCY < height*0.9896) {
+      //do nothing
+    } else {
+      rect(width*0.02930, height*0.7292, width*0.1074, height*0.2604);
+    }
+
+
+    if (playerCX > width*0.02930 && playerCX < width*0.2539  &&  playerCY> height*0.0521 && playerCY < height*0.3125) {
+      //do nothing
+    } else {
+      rect(width*0.02930, height*0.0521, width*0.2246, height*0.2604);
+    }
+
+
+    if (playerCX > width*0.7031 && playerCX < width*0.9766  &&  playerCY > height*0.0521 && playerCY < height*0.3472) {
+      //do nothing
+    } else {
+      rect(width*0.7031, height*0.0521, width*0.2734, height*0.2951);
+    }
   }
 }

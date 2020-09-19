@@ -18,15 +18,15 @@ boolean gamePaused = false;
 PImage player, hunter, boost, tazer, doorKey, piano, pianoFaldt, bucket, bucketFaldt;
 PVector vertical = new PVector(0, 100);
 float playerX, playerY, playerCX, playerCY, hunterX, hunterY, deltaX, deltaY;
-/*int*/float pSpeedOriginal, hSpeedOriginal, pSpeed, hSpeed;
+/*int*/float pBaseSpeed, hBaseSpeed, pSpeed, hSpeed;
 int startTimer, dustCount;
 
 
 void setup() {
   m = new Map();
   fullScreen(1);
-  //size(1000, 1000);
   cursor(CROSS);
+  
   //bgMusic = new SoundFile(this, "baggrundsmusik.wav");  //loader musik-filen
   //bgMusic.loop();  //looper musikken, så den aldrig stopper, bare starter forfra, når den når til enden
 
@@ -39,11 +39,11 @@ void setup() {
   playerY = height*0.2083;
   playerCX = playerX+27;
   playerCY = playerY+16;
-  pSpeedOriginal = 5;
+  pBaseSpeed = 5;
   pSpeed = 5;
   hunterX = 200;  //placeholder for hunter's spawn position
   hunterY = 200;
-  hSpeedOriginal = 4;
+  hBaseSpeed = 4;
   hSpeed = 4;
   deltaX = abs(playerCX - hunterX);
   deltaY = abs(playerCY - hunterY);
@@ -95,8 +95,8 @@ void draw() {
     h.hunterSetMove();
     h.moveHunter();
     b.boost(500, 500);
-    m.drawRoom();
     c.placeKey();
+    m.drawRoom();
 
     fill(130, 255);
     textAlign(LEFT);

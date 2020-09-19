@@ -38,6 +38,7 @@ class Boosts {
     image(boost, x, y);
     if (playerCX > x-31 && playerCX < x+31) {
       if (playerCY> y-29 && playerCY < y+29) {
+        pBaseSpeed += 2;
         pSpeed += 2;
         used = true;  //sørger for at energidrikken forsvinder, efter spilleren har taget den.
       }

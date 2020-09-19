@@ -86,17 +86,17 @@ class Traps {
 
       if (playerCX > x-40 && playerCX < x+25) {
         if (playerCY > y-70 && playerCY < y+70) {
-          pSpeed = pSpeedOriginal/1.6;
+          pSpeed = pBaseSpeed/1.6;
         }
       } else {
-        pSpeed = pSpeedOriginal;
+        pSpeed = pBaseSpeed;
       }
       if (hunterX > x-40 && hunterX < x+25) {
         if (hunterY > y-70 && hunterY < y+70) {
-          hSpeed = hSpeedOriginal/3;
+          hSpeed = hBaseSpeed/3;
         }
       } else {
-        hSpeed = hSpeedOriginal;
+        hSpeed = hBaseSpeed;
       }
     }
   }
@@ -130,17 +130,17 @@ class Traps {
       
       if (playerCX > x-40 && playerCX < x+25) {
         if (playerCY > y-70 && playerCY < y+70) {
-          pSpeed = pSpeedOriginal/1.6;
+          pSpeed = pBaseSpeed/1.6;
         }
       } else {
-        pSpeed = pSpeedOriginal;
+        pSpeed = pBaseSpeed;
       }
       if (hunterX > x-40 && hunterX < x+25) {
         if (hunterY > y-70 && hunterY < y+70) {
-          hSpeed = hSpeedOriginal/3;
+          hSpeed = hBaseSpeed/3;
         }
       } else {
-        hSpeed = hSpeedOriginal;
+        hSpeed = hBaseSpeed;
       }
     }
   }
