@@ -11,13 +11,14 @@ Traps t = new Traps();
 import processing.sound.*;  //VIGTIGt - Spillet bruger Processings Sound library. Spillet køres ikke, hvis du ikke har installeret det.
 SoundFile bgMusic;          //For at installere: Øverst i Processing, tryk "Sketch" -> "Import Library" -> "Add library" -> søg på "Sound" -> Download "Sound" af The Processing Foundation
 
-boolean isLeft, isRight, isUp, isDown;
+boolean pianoStanding1, pianoStanding2, bucketStanding1, bucketStanding2 = true;
+boolean isLeft, isRight, isUp, isDown = false;
 boolean goLeft, goRight, goUp, goDown, isStunned = false;
 boolean gamePaused = false;
 PImage player, hunter, boost, tazer, doorKey, piano, pianoFaldt, bucket, bucketFaldt;
 PVector vertical = new PVector(0, 100);
 float playerX, playerY, playerCX, playerCY, hunterX, hunterY, deltaX, deltaY;
-int pSpeed, hSpeed;
+/*int*/float pSpeedOriginal, hSpeedOriginal, pSpeed, hSpeed;
 int startTimer, dustCount;
 
 
@@ -29,14 +30,20 @@ void setup() {
   //bgMusic = new SoundFile(this, "baggrundsmusik.wav");  //loader musik-filen
   //bgMusic.loop();  //looper musikken, så den aldrig stopper, bare starter forfra, når den når til enden
 
+  pianoStanding1 = true;
+  pianoStanding2 = true;
+  bucketStanding1 = true;
+  bucketStanding2 = true;
   startTimer = millis();
   playerX = width*0.1172;            //placeholder for player's spawn position
   playerY = height*0.2083;
   playerCX = playerX+27;
   playerCY = playerY+16;
-  pSpeed = 8;
+  pSpeedOriginal = 5;
+  pSpeed = 5;
   hunterX = 200;  //placeholder for hunter's spawn position
   hunterY = 200;
+  hSpeedOriginal = 4;
   hSpeed = 4;
   deltaX = abs(playerCX - hunterX);
   deltaY = abs(playerCY - hunterY);
@@ -78,8 +85,10 @@ void draw() {
     noStroke();
     m.drawMap();
     popMatrix();
-    t.piano(200, 300);
-    t.bucket(400, 300);
+    t.piano1(width*0.335+30, height*0.5729);
+    t.piano2(width*0.6445+63, height*0.4687);
+    t.bucket1(width*0.3516+40, height*0.05208+40);
+    t.bucket2(width*0.7617+40, height*0.7813+40);
     h.hunterRotation();  //kaldes før playerRotation(), fordi flashlight() køres derfra. På den måde dækkes Jægeren af lommelygtens mørke
     p.playerRotation();
     p.movePlayer();
@@ -105,9 +114,9 @@ void draw() {
 
 
 void keyPressed() {
-  p.playerSetMove(key, true);
+  p.playerPressedKey(key, true);
 }
 
 void keyReleased() {
-  p.playerSetMove(key, false);
+  p.playerPressedKey(key, false);
 }
