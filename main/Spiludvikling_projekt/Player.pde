@@ -2,6 +2,10 @@ class Player {
   PVector playerAim = new PVector(mouseX, mouseY);
   PVector playerFaceCursor;
   float playerAngle;
+  int above, onLeft, below, onRight;
+  int INTplayerCX, INTplayerCY = 0;
+  int black = -16777216;  //værdien som get() returnerer, hvis den pixel, den kigger på, er sort
+
 
   void playerRotation() {
     p.playerFaceCursor = new PVector((playerCX)-mouseX, (playerCY)-mouseY);
@@ -23,42 +27,102 @@ class Player {
   void movePlayer() {
     playerCX = constrain(playerCX + pSpeed*(int(isRight) - int(isLeft)), 64, width  - 128);
     playerCY = constrain(playerCY + pSpeed*(int(isDown)  - int(isUp)), 75, height - 81);
-    
-    for(int i = 0; i < m.blocks.length;i++)
-    {
-      if((playerCX > m.blocks[i].x && playerCX < (m.blocks[i].x+m.blocks[i].w)) && (playerCY > m.blocks[i].y  && playerCY < (m.blocks[i].y+m.blocks[i].h)))
-      {
-        println("My ladies - We hit a wall");
-      }
-    }
+
+    INTplayerCX = int(playerCX);
+    INTplayerCY = int(playerCY);
+    //for (int i = 0; i < m.blocks.length; i++) {
+    //  if (playerCX > m.blocks[i].x && playerCX < (m.blocks[i].x+m.blocks[i].w)) {
+    //    if (playerCY > m.blocks[i].y  && playerCY < (m.blocks[i].y+m.blocks[i].h)) {
+    //      println("My ladies - We hit a wall");
+    //    }
+    //  }
+    //}
   }
 
 
 
-  boolean playerSetMove(int k, boolean b) {
-    switch (k) {                            //NOTE OM "COLLISION"
-    case +'W':                              //
-    case UP:                                //Hvis man prøver at bevæge sig (trykker w, a, s eller d)
-      return isUp = b;                      //Så tjek om der er plads til at rykke sig "pSpeed" længere i dén retning
-                                            //Hvis ja, så:
-    case +'S':                              //playerX + pSpeed    (eller hvilken retning man nu skal)
-    case DOWN:                              //
-      return isDown = b;                    //HVIS IKKE:
-                                            //så pdater IKKE spillers position.
-    case +'A':                              //
-    case LEFT:                              //på den måde bevæger man sig kun
-      return isLeft = b;                    //hvis der er plads til det.
-                                            //pSpeed er hvor meget man rykker sig hvert frame
-    case +'D':                              //
-    case RIGHT:                             //så hvis man ikke kan rykke sig pSpeed længere i en retning
-      return isRight = b;                   //så må der være mindre end pSpeed plads
-                                            //og derfor, ville man (hvis rykkede sig alligevel) ende inde i en væg.
-    case 'Q':
-      h.hunterStunned();
-    
-    default:
-      return b;
+  boolean playerPressedKey(int k, boolean b) {
+    //spillerens position er "playerC_" (enten X eller Y) og hvis spilleren bevæger sig, vil positionen i næste frame være "playerC_ + pSpeed"
+    if (k == 'w') {
+      //for (int i = 0; i < m.blocks.length; i++) {
+      //  if (playerCY - pSpeed >= m.blocks[i].y  && playerCY - pSpeed <= (m.blocks[i].y+m.blocks[i].h)) { //tjekker om spillerens position i næste frame (hvis spilleren bevæger sig) er inden for en blok
+      //    //return b;                                                                                    //hvis den er, så return b, som ikke ændrer på spillerens position
+      //  } else {
+      //    return isUp = b;                                                                               //hvis den ikke er, så opdateres spillerens position.
+      //  }
+      //}
+
+      /********************************************************************************************************/
+
+      //above = get(INTplayerCX, INTplayerCY - pSpeed);
+      //if (above == black) {
+      //  return b;
+      //}
+      return isUp = b;
     }
+
+    if (k == 'a') {
+      //for (int i = 0; i < m.blocks.length; i++) {
+      //  if (playerCX - pSpeed >= m.blocks[i].x  && playerCX - pSpeed <= (m.blocks[i].x+m.blocks[i].w)) {
+      //    return b;
+      //  } else {
+      //    return isLeft = b;
+      //  }
+      //}
+
+      /********************************************************************************************************/
+
+      //onLeft = get(INTplayerCX - pSpeed, INTplayerCY);
+      //if (onLeft == black) {
+      //  return b;
+      //}
+      return isLeft = b;
+    }
+
+    if (k == 's') {
+      //for (int i = 0; i < m.blocks.length; i++) {
+      //  if (playerCY + pSpeed >= m.blocks[i].y  && playerCY + pSpeed <= (m.blocks[i].y+m.blocks[i].h)) {
+      //    //return b;
+      //  } else {
+        //    return isDown = b;
+      //  }
+      //}
+
+      /********************************************************************************************************/
+
+      //below = get(INTplayerCX, INTplayerCY + pSpeed);
+      //if (below == black) {
+      //return b;
+      //}
+      return isDown = b;
+    }
+
+    if (k == 'd') {
+      //for (int i = 0; i < m.blocks.length; i++) {
+      //  if (playerCX + pSpeed >= m.blocks[i].x  && playerCX + pSpeed <= (m.blocks[i].x+m.blocks[i].w)) {
+      //    //return b;
+      //  } else {
+      //    return isRight = b;
+      //  }
+      //}
+
+      /********************************************************************************************************/
+
+      //onRight = get(INTplayerCX + pSpeed, INTplayerCY);
+      //if (onRight == black) {
+      //  return b;
+      //}
+      return isRight = b;
+    }
+
+    if (k == 'q') {
+      h.hunterStunned();
+    }
+
+    if (k == 'e') {
+      return t.useIsPressed = b;
+    }
+    return b;  //return b, hvis ingen knapper er trykket ned, fordi denne funktion kvæver, at der altid returneres en boolean
   }
 
   void flashlight() {

@@ -1,8 +1,8 @@
 class Collectables {
   boolean keyPickedUp = false;
   int keyCounter = 0;
-  
-  
+
+
   void placeKey() {
     if (keyPickedUp == false) {
       spawnKey(450, 400);
@@ -11,8 +11,8 @@ class Collectables {
       spawnKey(width*0.40, height*0.026);
     }
   }
-  
-  
+
+
   void spawnKey(float x, float y) {
     pushMatrix();
     //scale(0.7);

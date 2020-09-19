@@ -1,123 +1,147 @@
 class Traps {
-  boolean pianoStanding = true;
-   boolean bucketStanding = true;
+  boolean useIsPressed = false;
 
+  //Det her er Piano1
+  void piano1(float x, float y) {  
+    if (pianoStanding1 == true) {
+      pushMatrix();
+      translate(x, y);
+      rotate(PI);
+      image(piano, 0, 0);
+      popMatrix();
 
-
-  //void shelf (int shelfX, int shelfY) {
-  //  rect (100, 100, 75, 75);
-
-  //  rect (shelfX, shelfY, 75, 75);
-  //}
-
-
-
-
-  void piano(float x, float y) {  
-
-    if (pianoStanding == true) {
-      drawPiano(200, 300);
-    }
-    if (pianoStanding == false) {
-      drawPianoFald(200, 300);
-    }
-  }
-
-  void drawPiano(float x, float y) {
-    pushMatrix();
-    translate(x, y);
-
-    rotate(PI/2);
-
-    image(piano, 0, 0);
-    popMatrix();
-   
-    if (keyPressed) {
-
-      if (key == 'e'||key=='E') {
-
-
-        if (playerX+55  > x-55 && playerX < x+55 &&
-          playerY+55 > y-55 && playerY  < y+55) {
-          pianoStanding = false;
+      if (useIsPressed == true) {
+        if (playerCX > x-70 && playerCX < x+25) {
+          if (playerCY > y-70 && playerCY < y+70) {
+            pianoStanding1 = false;
+          }
         }
       }
+    }
 
-      
+    if (pianoStanding1 == false) {
+      pushMatrix();
+      translate(x, y);
+      rotate(PI);
+      image(pianoFaldt, 18, 0);
+      popMatrix();
     }
   }
 
-  void drawPianoFald(float x, float y) {
+  /********************************************************************************************************/
 
-    //if(key == 'e'||key =='E'){
+  //Det her er Piano2
+  void piano2(float x, float y) {
+    if (pianoStanding2 == true) {
+      pushMatrix();
+      translate(x, y);
+      rotate(PI);
+      image(piano, 0, 0);
+      popMatrix();
 
-   pushMatrix();
-    translate(x, y);
-
-    rotate(PI/2);
-
-    image(pianoFaldt, 0, 0);
-    popMatrix();
-  }
-  
-  
-  
-  void bucket(float x, float y) {  
-
-    if (bucketStanding == true) {
-      drawBucket(440, 300);
-    }
-    if (bucketStanding == false) {
-      drawBucketFald(440, 300);
-    }
-  }
-
-  void drawBucket(float x, float y) {
-    pushMatrix();
-    translate(x, y);
-
-    rotate(PI/2);
-
-    image(bucket, 0, 0);
-    popMatrix();
-   
-    if (keyPressed) {
-
-      if (key == 'e'||key=='E') {
-
-
-        if (playerX+55  > x-55 && playerX < x+55 &&
-          playerY+55 > y-55 && playerY  < y+55) {
-          bucketStanding = false;  
+      if (useIsPressed == true) {
+        if (playerCX > x-70 && playerCX < x+25) {
+          if (playerCY > y-70 && playerCY < y+70) {
+            pianoStanding2 = false;
+          }
         }
       }
+    }
 
-      
+    if (pianoStanding2 == false) {
+      pushMatrix();
+      translate(x, y);
+      rotate(PI);
+      image(pianoFaldt, 18, 0);
+      popMatrix();
     }
   }
 
-  void drawBucketFald(float x, float y) {
+  /********************************************************************************************************/
 
+  //Det her er Bucket1
+  void bucket1(float x, float y) {
+    if (bucketStanding1 == true) {
+      pushMatrix();
+      translate(x, y);
+      rotate(PI);
+      image(bucket, 0, 0);
+      popMatrix();
 
-   pushMatrix();
-    translate(x, y);
+      if (useIsPressed == true) {
+        if (playerCX > x-40 && playerCX < x+25) {
+          if (playerCY > y-70 && playerCY < y+70) {
+            bucketStanding1 = false;
+          }
+        }
+      }
+    }
 
-    rotate(PI/2);
+    if (bucketStanding1 == false) {
+      pushMatrix();
+      translate(x, y);
+      rotate(PI);
+      image(bucketFaldt, 0, 0);
+      popMatrix();
 
-    image(bucketFaldt, 0, 0);
-    popMatrix();
+      if (playerCX > x-40 && playerCX < x+25) {
+        if (playerCY > y-70 && playerCY < y+70) {
+          pSpeed = pSpeedOriginal/1.6;
+        }
+      } else {
+        pSpeed = pSpeedOriginal;
+      }
+      if (hunterX > x-40 && hunterX < x+25) {
+        if (hunterY > y-70 && hunterY < y+70) {
+          hSpeed = hSpeedOriginal/3;
+        }
+      } else {
+        hSpeed = hSpeedOriginal;
+      }
+    }
   }
 
+  /********************************************************************************************************/
 
+  //Det her et Bucket2
+  void bucket2(float x, float y) {
+    if (bucketStanding2 == true) {
+      pushMatrix();
+      translate(x, y);
+      rotate(PI);
+      image(bucket, 0, 0);
+      popMatrix();
 
+      if (useIsPressed == true) {
+        if (playerCX > x-40 && playerCX < x+25) {
+          if (playerCY > y-70 && playerCY < y+70) {
+            bucketStanding2 = false;
+          }
+        }
+      }
+    }
 
-
-  //void pianofald(float x, float y) {
-  //  if (pianoStanding == true) {
-  //  }
-  //  if (playerX+55   > x-75 && playerX+55 < x &&
-  //    playerY+31 > y-75 && playerY+31 < y) {
-  //    drawPianoFald(200, 300);
-  //  }
-  //}
+    if (bucketStanding2 == false) {
+      pushMatrix();
+      translate(x, y);
+      rotate(PI);
+      image(bucketFaldt, 0, 0);
+      popMatrix();
+      
+      if (playerCX > x-40 && playerCX < x+25) {
+        if (playerCY > y-70 && playerCY < y+70) {
+          pSpeed = pSpeedOriginal/1.6;
+        }
+      } else {
+        pSpeed = pSpeedOriginal;
+      }
+      if (hunterX > x-40 && hunterX < x+25) {
+        if (hunterY > y-70 && hunterY < y+70) {
+          hSpeed = hSpeedOriginal/3;
+        }
+      } else {
+        hSpeed = hSpeedOriginal;
+      }
+    }
+  }
 }
