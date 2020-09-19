@@ -2,9 +2,8 @@ class Player {
   PVector playerAim = new PVector(mouseX, mouseY);
   PVector playerFaceCursor;
   float playerAngle;
-  int above, onLeft, below, onRight;
+  int playerAbove, playerOnLeft, playerBelow, playerOnRight;
   int INTplayerCX, INTplayerCY = 0;
-  int black = -16777216;  //værdien som get() returnerer, hvis den pixel, den kigger på, er sort
 
 
   void playerRotation() {
@@ -54,8 +53,8 @@ class Player {
 
       /********************************************************************************************************/
 
-      //above = get(INTplayerCX, INTplayerCY - pSpeed);
-      //if (above == black) {
+      //playerAbove = get(INTplayerCX, INTplayerCY - pSpeed);
+      //if (playerAbove == black) {
       //  return b;
       //}
       return isUp = b;
@@ -72,8 +71,8 @@ class Player {
 
       /********************************************************************************************************/
 
-      //onLeft = get(INTplayerCX - pSpeed, INTplayerCY);
-      //if (onLeft == black) {
+      //playerOnLeft = get(INTplayerCX - pSpeed, INTplayerCY);
+      //if (playerOnLeft == black) {
       //  return b;
       //}
       return isLeft = b;
@@ -90,8 +89,8 @@ class Player {
 
       /********************************************************************************************************/
 
-      //below = get(INTplayerCX, INTplayerCY + pSpeed);
-      //if (below == black) {
+      //playerBelow = get(INTplayerCX, INTplayerCY + pSpeed);
+      //if (playerBelow == black) {
       //return b;
       //}
       return isDown = b;
@@ -108,8 +107,8 @@ class Player {
 
       /********************************************************************************************************/
 
-      //onRight = get(INTplayerCX + pSpeed, INTplayerCY);
-      //if (onRight == black) {
+      //playerOnRight = get(INTplayerCX + pSpeed, INTplayerCY);
+      //if (playerOnRight == black) {
       //  return b;
       //}
       return isRight = b;

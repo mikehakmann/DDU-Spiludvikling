@@ -18,8 +18,9 @@ boolean gamePaused = false;
 PImage player, hunter, boost, tazer, doorKey, piano, pianoFaldt, bucket, bucketFaldt;
 PVector vertical = new PVector(0, 100);
 float playerX, playerY, playerCX, playerCY, hunterX, hunterY, deltaX, deltaY;
-/*int*/float pBaseSpeed, hBaseSpeed, pSpeed, hSpeed;
+/*int*/float pBaseSpeed, pSpeed, hBaseSpeed, hSpeed;
 int startTimer, dustCount;
+int black = -16777216;  //værdien som get() returnerer, hvis den pixel, den kigger på, er sort
 
 
 void setup() {
