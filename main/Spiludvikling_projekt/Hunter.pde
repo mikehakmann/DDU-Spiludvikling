@@ -3,7 +3,7 @@ class Hunter {
   PVector hunterFacePlayer;
   PVector targeting;
   float hunterAngle;
-  float deltaX, deltaY;
+  float deltaXpos, deltaYpos, deltaXneg, deltaYneg;
   int counter = 0;
   int hunterAbove, hunterOnLeft, hunterBelow, hunterOnRight;
   int INThunterX, INThunterY = 0;
@@ -42,8 +42,11 @@ class Hunter {
 
 
   void hunterSetMove() {
-    deltaX = abs(playerCX - hunterX);
-    deltaY = abs(playerCY - hunterY);
+    deltaXpos = playerCX - hunterX;
+    deltaYpos = playerCY - hunterY;
+    deltaXneg = hunterX - playerCX;
+    deltaYneg = hunterY - playerCY;
+
     hunterAbove = get(INThunterX, INThunterY - int(hSpeed));
     hunterOnLeft = get(INThunterX - int(hSpeed), INThunterY);
     hunterBelow = get(INThunterX, INThunterY + int(hSpeed));
@@ -51,35 +54,36 @@ class Hunter {
 
     if (frameCount > 200) {
       if (isStunned == false) {
-        if (deltaX > deltaY && deltaX > width*0.01172) {
+        if (deltaXpos > deltaXneg) {
           goLeft = false;
           goRight = true;
           if (hunterOnRight == black) {  //Disse tre linjer - alle fire steder
             goRight = false;             //giver tilsammen Jægeren "collision"
           }                              //
-          
-          if (hunterX > playerCX && hunterX > width*0.01172) {
-            goRight = false;
-            goLeft = true;
-            if (hunterOnLeft == black) {  //Disse tre linjer - alle fire steder
-              goLeft = false;             //giver tilsammen Jægeren "collision"
-            }                             //
-          }
         }
-        if (deltaY > deltaX && deltaY > height*0.0208) {
+        
+        if (deltaXneg > deltaXpos) {
+          goRight = false;
+          goLeft = true;
+          if (hunterOnLeft == black) {  //Disse tre linjer - alle fire steder
+            goLeft = false;             //giver tilsammen Jægeren "collision"
+          }                             //
+        }
+
+        if (deltaYpos > deltaYneg) {
           goUp = false;
           goDown = true;
           if (hunterBelow == black) {  //Disse tre linjer - alle fire steder
             goDown = false;            //giver tilsammen Jægeren "collision"
           }                            //
-          
-          if (hunterY > playerCY && hunterY > height*0.0208) {
-            goDown = false;
-            goUp = true;
-            if (hunterAbove == black) {  //Disse tre linjer - alle fire steder
-              goUp = false;              //giver tilsammen Jægeren "collision"
-            }                            //
-          }
+        }
+        
+        if (deltaYneg > deltaYpos) {
+          goDown = false;
+          goUp = true;
+          if (hunterAbove == black) {  //Disse tre linjer - alle fire steder
+            goUp = false;              //giver tilsammen Jægeren "collision"
+          }                            //
         }
       }
 
