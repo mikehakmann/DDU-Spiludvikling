@@ -11,8 +11,8 @@ class Traps {
       popMatrix();
 
       if (useIsPressed == true) {
-        if (playerCX > x-70 && playerCX < x+25) {
-          if (playerCY > y-70 && playerCY < y+70) {
+        if (playerCX > x-width*0.02734 && playerCX < x+width*0.009766) {
+          if (playerCY > y-height*0.04861 && playerCY < y+height*0.04861) {
             pianoStanding1 = false;
           }
         }
@@ -23,7 +23,7 @@ class Traps {
       pushMatrix();
       translate(x, y);
       rotate(PI);
-      image(pianoFaldt, 18, 0);
+      image(pianoFaldt, width*0.007031, 0);
       popMatrix();
     }
   }
@@ -40,8 +40,8 @@ class Traps {
       popMatrix();
 
       if (useIsPressed == true) {
-        if (playerCX > x-70 && playerCX < x+25) {
-          if (playerCY > y-70 && playerCY < y+70) {
+        if (playerCX > x-width*0.01563 && playerCX < x+width*0.009766) {
+          if (playerCY > y-height*0.04861 && playerCY < y+height*0.04861) {
             pianoStanding2 = false;
           }
         }
@@ -52,7 +52,7 @@ class Traps {
       pushMatrix();
       translate(x, y);
       rotate(PI);
-      image(pianoFaldt, 18, 0);
+      image(pianoFaldt, width*0.007031, 0);
       popMatrix();
     }
   }
@@ -69,8 +69,8 @@ class Traps {
       popMatrix();
 
       if (useIsPressed == true) {
-        if (playerCX > x-40 && playerCX < x+25) {
-          if (playerCY > y-70 && playerCY < y+70) {
+        if (playerCX > x-width*0.01563 && playerCX < x+width*0.009766) {
+          if (playerCY > y-height*0.04861 && playerCY < y+height*0.04861) {
             bucketStanding1 = false;
           }
         }
@@ -84,15 +84,15 @@ class Traps {
       image(bucketFaldt, 0, 0);
       popMatrix();
 
-      if (playerCX > x-40 && playerCX < x+25) {
-        if (playerCY > y-70 && playerCY < y+70) {
+      if (playerCX > x-width*0.01563 && playerCX < x+width*0.009766) {
+        if (playerCY > y-height*0.04861 && playerCY < y+height*0.04861) {
           pSpeed = pBaseSpeed/1.6;
         }
       } else {
         pSpeed = pBaseSpeed;
       }
-      if (hunterX > x-40 && hunterX < x+25) {
-        if (hunterY > y-70 && hunterY < y+70) {
+      if (hunterX > x-width*0.01563 && hunterX < x+width*0.009766) {
+        if (hunterY > y-height*0.04861 && hunterY < y+height*0.04861) {
           hSpeed = hBaseSpeed/3;
         }
       } else {
@@ -113,8 +113,8 @@ class Traps {
       popMatrix();
 
       if (useIsPressed == true) {
-        if (playerCX > x-40 && playerCX < x+25) {
-          if (playerCY > y-70 && playerCY < y+70) {
+        if (playerCX > x-width*0.01563 && playerCX < x+width*0.009766) {
+          if (playerCY > y-height*0.04861 && playerCY < y+height*0.04861) {
             bucketStanding2 = false;
           }
         }
@@ -128,15 +128,15 @@ class Traps {
       image(bucketFaldt, 0, 0);
       popMatrix();
       
-      if (playerCX > x-40 && playerCX < x+25) {
-        if (playerCY > y-70 && playerCY < y+70) {
+      if (playerCX > x-width*0.01563 && playerCX < x+width*0.009766) {
+        if (playerCY > y-height*0.04861 && playerCY < y+height*0.04861) {
           pSpeed = pBaseSpeed/1.6;
         }
       } else {
         pSpeed = pBaseSpeed;
       }
-      if (hunterX > x-40 && hunterX < x+25) {
-        if (hunterY > y-70 && hunterY < y+70) {
+      if (hunterX > x-width*0.01563 && hunterX < x+width*0.009766) {
+        if (hunterY > y-height*0.04861 && hunterY < y+height*0.04861) {
           hSpeed = hBaseSpeed/3;
         }
       } else {

@@ -28,22 +28,22 @@ void setup() {
   fullScreen(1);
   cursor(CROSS);
   
-  //bgMusic = new SoundFile(this, "baggrundsmusik.wav");  //loader musik-filen
-  //bgMusic.loop();  //looper musikken, så den aldrig stopper, bare starter forfra, når den når til enden
+  bgMusic = new SoundFile(this, "baggrundsmusik.wav");  //loader musik-filen
+  bgMusic.loop();  //looper musikken, så den aldrig stopper, bare starter forfra, når den når til enden
 
   pianoStanding1 = true;
   pianoStanding2 = true;
   bucketStanding1 = true;
   bucketStanding2 = true;
   startTimer = millis();
-  playerX = width*0.1172;            //placeholder for player's spawn position
-  playerY = height*0.2083;
+  playerX = width*0.08711;
+  playerY = height*0.3785;
   playerCX = playerX+27;
   playerCY = playerY+16;
-  pBaseSpeed = 5;
-  pSpeed = 5;
-  hunterX = 200;  //placeholder for hunter's spawn position
-  hunterY = 200;
+  pBaseSpeed = 3;
+  pSpeed = 3;
+  hunterX = width*0.03516;
+  hunterY = height*0.3888;
   hBaseSpeed = 4;
   hSpeed = 4;
   deltaX = abs(playerCX - hunterX);
@@ -72,31 +72,31 @@ void draw() {
   if (gamePaused == false) {
     background(255);
 
-    //for (int j = 0; j < d.length; j++) {
-    //  d[j].updateDust();
+    for (int j = 0; j < d.length; j++) {
+      d[j].updateDust();
 
-    //  if (d[j].dustPos.x < 0 - d[j].dustSizeX) {
-    //    d[j].dustPos.x = width + d[j].dustSizeX;
-    //  }
-    //  if (d[j].dustPos.y > height + d[j].dustSizeY) {
-    //    d[j].dustPos.y = 0 - d[j].dustSizeY;
-    //  }
-    //}
+      if (d[j].dustPos.x < -d[j].dustSizeX) {
+        d[j].dustPos.x = width+d[j].dustSizeX;
+      }
+      if (d[j].dustPos.y > height+d[j].dustSizeY) {
+        d[j].dustPos.y = -d[j].dustSizeY;
+      }
+    }
     pushMatrix();
     noStroke();
     m.drawMap();
     popMatrix();
-    t.piano1(width*0.335+30, height*0.5729);
-    t.piano2(width*0.6445+63, height*0.4687);
-    t.bucket1(width*0.3516+40, height*0.05208+40);
-    t.bucket2(width*0.7617+40, height*0.7813+40);
+    t.piano1(width*0.3467, height*0.5729);
+    t.piano2(width*0.6691, height*0.4687);
+    t.bucket1(width*0.3672, height*0.07986);
+    t.bucket2(width*0.7773, height*0.8091);
     h.hunterRotation();  //kaldes før playerRotation(), fordi flashlight() køres derfra. På den måde dækkes Jægeren af lommelygtens mørke
     p.playerRotation();
     p.movePlayer();
     h.hunterSetMove();
     h.moveHunter();
-    b.boost(500, 500);
-    c.placeKey();
+    b.boost(width*0.07422, height*0.7813);
+    c.placeKey(width*0.8457, height*0.5208);
     m.drawRoom();
 
     fill(130, 255);
@@ -112,6 +112,7 @@ void draw() {
   noStroke();
   s.checkVictory();
   popMatrix();
+  println(playerCX, playerCY);
 }
 
 

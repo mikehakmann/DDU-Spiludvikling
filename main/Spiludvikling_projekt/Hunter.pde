@@ -6,7 +6,7 @@ class Hunter {
   float deltaXpos, deltaYpos, deltaXneg, deltaYneg;
   int counter = 0;
   int hunterAbove, hunterOnLeft, hunterBelow, hunterOnRight;
-  int INThunterX, INThunterY = 0;
+  int INThunterX, INThunterY;
 
 
   void hunterRotation() {
@@ -61,7 +61,7 @@ class Hunter {
             goRight = false;             //giver tilsammen Jægeren "collision"
           }                              //
         }
-        
+
         if (deltaXneg > deltaXpos) {
           goRight = false;
           goLeft = true;
@@ -77,7 +77,7 @@ class Hunter {
             goDown = false;            //giver tilsammen Jægeren "collision"
           }                            //
         }
-        
+
         if (deltaYneg > deltaYpos) {
           goDown = false;
           goUp = true;
@@ -104,9 +104,12 @@ class Hunter {
 
 
   void hunterStunned() {
+    
     if (b.tazerPickedUp == true) {
-      if (deltaX <= width*0.02734 && deltaY <= height*0.04861) {
-        isStunned = true;
+      if (playerCX >= hunterX-width*0.02734 && playerCX <= hunterX+width*0.02734) {
+        if (playerCY >= hunterY-height*0.04861 && playerCY <= hunterY+height*0.04861) {
+          isStunned = true;
+        }
       }
     }
   }

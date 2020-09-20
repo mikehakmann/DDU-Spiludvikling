@@ -3,9 +3,9 @@ class Collectables {
   int keyCounter = 0;
 
 
-  void placeKey() {
+  void placeKey(float x, float y) {
     if (keyPickedUp == false) {
-      spawnKey(450, 400);
+      spawnKey(x, y);
     }
     if (keyPickedUp == true) {
       spawnKey(width*0.40, height*0.026);
@@ -18,8 +18,8 @@ class Collectables {
     //scale(0.7);
     image(doorKey, x, y);
     popMatrix();
-    if (playerCX > x-25 && playerCX < x+25) {
-      if (playerCY > y-30 && playerCY < y+30) {
+    if (playerCX > x-width*0.01211 && playerCX < x+width*0.01211) {
+      if (playerCY > y-height*0.02014 && playerCY < y+height*0.02014) {
         keyPickedUp = true;  //holder styr på, om spilleren har nøglen eller ej
         keyCounter++;
       }

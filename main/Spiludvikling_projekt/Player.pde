@@ -17,15 +17,14 @@ class Player {
     translate(playerCX, playerCY);
     scale(width*0.0003125);
     rotate(-playerAngle);
-    //tint(255, 255);
     image(player, 0, 0);
     popMatrix();
-    //p.flashlight();
+    p.flashlight();
   }
 
   void movePlayer() {
-    playerCX = constrain(playerCX + pSpeed*(int(isRight) - int(isLeft)), 64, width  - 128);
-    playerCY = constrain(playerCY + pSpeed*(int(isDown)  - int(isUp)), 75, height - 81);
+    playerCX = constrain(playerCX + pSpeed*(int(isRight) - int(isLeft)), width*0.025, width*0.95);
+    playerCY = constrain(playerCY + pSpeed*(int(isDown)  - int(isUp)), height*0.05208, height*0.9438);
 
     INTplayerCX = int(playerCX);
     INTplayerCY = int(playerCY);
@@ -83,7 +82,7 @@ class Player {
       //  if (playerCY + pSpeed >= m.blocks[i].y  && playerCY + pSpeed <= (m.blocks[i].y+m.blocks[i].h)) {
       //    //return b;
       //  } else {
-        //    return isDown = b;
+      //    return isDown = b;
       //  }
       //}
 
@@ -143,7 +142,7 @@ class Player {
     vertex(-width*0.01055, -height*0.01111);
     vertex(-width*0.01055, height*0.01111);
     endShape(CLOSE);
-    quad(-width*1.2, -height*2, -width*0.07773-2, -height*0.3125, width*0.07773+2, -height*0.3125, width*1.2, -height*2);
+    quad(-width*1.5, -height, -width*0.07695, -height*0.3125, width*0.07851, -height*0.3125, width*1.2, -height*2);
     popMatrix();
   }
 }
