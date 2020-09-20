@@ -112,7 +112,6 @@ void draw() {
   noStroke();
   s.checkVictory();
   popMatrix();
-  println(playerCX, playerCY);
 }
 
 
